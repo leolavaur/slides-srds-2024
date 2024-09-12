@@ -1,111 +1,27 @@
-\documentclass[aspectratio=169,10pt]{imta}
+\section{Fighting Byzantine Contributions in Heterogeneous Settings}
 
-\usepackage{config}
+\begin{frame}
+  \sectionpage
 
-\title{RADAR: Model Quality Assessment for Reputation-aware Collaborative Federated Learning”}
-
-\subtitle{}
-
-\author{
-  \textbf{L. Lavaur}\inst{1,3} \and
-  \textbf{P.-M. Lechevalier}\inst{1,4} \and
-  Y. Busnel\inst{2,3} \and
-  R. Ludinard\inst{1,3} \and
-  G. Texier\inst{1,4} \and
-  M.-O. Pahl\inst{1,3}
-}
-
-\institute{
-  \inst{1}IMT Atlantique \quad
-  \inst{2}IMT Nord Europe \quad
-  \inst{3}SOTERN (IRISA) \quad
-  \inst{4}ADOPNET (IRISA)
-}
-
-\date{43\textsuperscript{rd} International Symposium on Reliable Distributed Systems (Sep.--Oct. 2024)}
-
-\setlength{\logosize}{1.5cm}
-\titlegraphic{%
-  \raisebox{-0.5\height}{\includegraphics[height=\logosize,keepaspectratio]{logos/imt-atlantique.pdf}}%
-  \raisebox{-0.5\height}{\includegraphics[height=.75\logosize,keepaspectratio]{logos/cybercniGB.pdf}}%
-  \hspace{10pt}%
-  \raisebox{-0.5\height}{\includegraphics[height=.75\logosize,keepaspectratio]{logos/b5g.png}}%
-}
-
-\subject{Federated Learning; Intrusion Detection; Byzantine; Cross-evaluation; Similarity; Clustering; Reputation Systems; Trust; Heterogeneity}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%            DOCUMENT CONTENT            %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{document}
-
-\maketitle
+  \fcitefootnote{lavaur_radar_2024}
+\end{frame}
 
 
-
-% Introduction
-% -----------------------------
-
-\begin{frame}{Case Study}
-  \textbf{Collaborative Intrusion Detection between Distributed Organizations}
+\begin{frame}{Context}
+  % - case study (multiple organizations, partial heterogeneity)
+  % - Byzantine contributions -> no guaranties
+  \textbf{Case study reminder}
   \begin{itemize}
-    \item Each organization has its own NIDS and monitors an information system.
-    \item They want to improve their detection capabilities.
-    \item Share knowledge about new attacks or specific devices.
+    \item Multiple organizations collaborating on a federated intrusion detection system.
+    \item Partial heterogeneity in the datasets: organizations have different data distributions but can share similarities.
   \end{itemize}
 
-  \pause
-  \textbf{A cross-silo use case:}
-  \begin{itemize}
-    \item few clients (\ie, 10——100);
-    \item consequent amount of data, high heterogeneity;
-    \item high availability, significant computing resources.
-  \end{itemize}
-
-  \pause
   \textbf{Byzantine contributions}
   \begin{itemize}
     \item No guarantees on the quality of the contributions.
     \item Can be intentional, due to poor data quality, or due to data distribution mismatches.
   \end{itemize}
-\end{frame}
 
-
-\begin{frame}{Heterogeneity Headaches}
-  
-  \begin{columns}
-    \begin{column}{.5\textwidth}
-      \includegraphics[width=\linewidth]{figures/intro/heterogeneity.png}
-    \end{column}
-
-    \begin{column}{.5\textwidth}
-
-      \textcolor<2->{lightgray}{%
-      \textbf{Challenge I}: \textit{Too much heterogeneity leads to poor performance\dots}
-      }
-      \only<1>{%
-        \begin{itemize} \small
-          \item How to handle different feature sets, data distributions?
-          \item How to consider models that are dissimilar because they "contain" relevant knowledge?
-        \end{itemize}
-      }
-      \vspace{1ex}
-
-
-      \textcolor<1>{lightgray}{%
-      \textbf{Challenge II}: \textit{Difficult to identify malicious contributions when models are different\dots}
-      }
-      
-      \only<2>{%
-        \begin{itemize} \small
-          \item Are model "dissimilar" because they are different, or because they are malicious/poisoned?
-        \end{itemize}
-      }
-      \vspace{1ex}
-      
-    \end{column}
-  \end{columns}  
 \end{frame}
 
 \begin{frame}{Problem Statement}
@@ -113,20 +29,6 @@
     For $n$ participants $p_i$ and their local datasets $d_i$ of unknown similarity, each participant uploads a model update $w_i^r$ at each round $r$. Given $P = \{ p_1, p_2, \dots, p_n \} $ and $W = \{ w_1^r, w_2^r, \dots, w_n^r \} $, how can one assess the quality of each participant’s contribution without making assumptions on the data distribution across the datasets $d_i$?
   \end{block}
 \end{frame}
-
-\begin{frame}{Outline}
-  \centering
-  \begin{minipage}[t]{.8\textwidth}
-    \tableofcontents%[hideallsubsections,]
-  \end{minipage}
-\end{frame}
-
-% Architecture
-% -----------------------------
-
-\section{Architecture}
-
-\subsection{Assessing Contribution Quality}
 
 \begin{frame}{Existing Solutions}
 
@@ -191,6 +93,18 @@
 
 \end{frame}
 
+% \begin{frame}{The RADAR Architecture}
+
+%   \begin{figure}
+%     \centering
+%     \includegraphics<1>[width=.7\textwidth]{figures/radar/architecture}
+%     \includegraphics<2>[width=.7\textwidth]{figures/radar/architecture-xeval}
+%     \caption{The RADAR architecture.}
+%   \end{figure}
+
+
+% \end{frame}
+
 \begin{frame}{Assessing Quality with Cross-Evaluation}
 
   \begin{columns}
@@ -234,8 +148,6 @@
   \end{columns}
 
 \end{frame}
-
-\subsection{Fighting Heterogeneity with Clustering}
 
 \begin{frame}{Fighting Heterogeneity with Clustering}
   \begin{columns}
@@ -285,8 +197,6 @@
 
 \end{frame}
 
-\subsection{Mitigating Byzantine Contributions}
-
 \begin{frame}{Reputation-aware Aggregation}
 
   \begin{block}{Definition: Reputation Systems\normalfont~\autocite{resnick_Reputationsystems_2000}}
@@ -312,11 +222,6 @@
 
 \end{frame}
 
-% Evaluation Setup
-% -----------------------------
-
-\section{Evaluation Setup}
-
 \begin{frame}{Experimental Setup}
   \begin{columns}
     \begin{column}{.55\textwidth}
@@ -339,12 +244,6 @@
   \end{columns}
   \fcitefootnote{sarhan_StandardFeatureSet_2021}
 \end{frame}
-
-
-% Results
-% -----------------------------
-
-\section{Results}
 
 \begin{frame}{Results}
   \begin{table}
@@ -387,17 +286,20 @@
   
 \end{frame}
 
+% \begin{frame}{Results}
+%   \begin{figure}
+%     \centering
+%     \includegraphics[width=.9\textwidth]{figures/radar/baselines.png}
+%     \caption{Baseline comparison.}
+%   \end{figure}
+%   \begin{figure}
+%     \centering
+%     \includegraphics[width=.9\textwidth]{figures/radar/limiting-case.png}
+%     \caption{RADAR's limiting scenario.}
+%   \end{figure}
+% \end{frame}
 
-% Conclusion
-% -----------------------------
-
-\section*{Conclusion}
-
-\begin{frame}
-  \sectionpage
-\end{frame}
-
-\begin{frame}{Fighting Byzantine Attacks in Federated Learning}
+\begin{frame}{Takeaways}
   \textbf{The proposed framework can:}
   \begin{itemize}
     \item Accurately cluster similar participants based on cross evaluations results.
@@ -405,151 +307,12 @@
     \item Mitigate most label-flipping targeted attacks, including colluding attackers (up to 80\% of poisoned data).
   \end{itemize}
 
-  \pause
-  \textbf{How generic?}
-  \begin{itemize}
-    \item Only few conditions: parametric models, locally owned evaluation set, a \alert<3>{small-scale use case}, and a \alert<3>{trusted central server}.
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Future Work}
-  \textbf{Future works:}
+  \onslide<2>{%
+    \textbf{Future works:}
     \begin{itemize}
       \item Remove the central server dependency.
       \item Reduce the cross-evaluation overhead to extend applicability to cross device settings.
       \item Test the approach in more realistic heterogeneous settings.
     \end{itemize}
+  }
 \end{frame}
-
-
-\begin{frame}
-  \centering\scshape\large Thank you for your attention!
-
-  \vfill
-  
-  \normalshape\normalsize
-
-  \textbf{RADAR: Model Quality Assessment for Reputation-aware Collaborative Federated Learning}
-  \medskip
-  \raggedright
-  \begin{itemize}
-    \item blah
-    \item blah
-    \item \dots
-  \end{itemize}
-
-  \vfill
-
-  \centering\small
-  leo.lavaur@imt-atlantique.fr\\
-  pierre-marie.lechevalier@imt-atlantique.fr
-
-\end{frame}
-
-
-\appendix
-
-\begin{frame}[allowframebreaks]{References}
-  \printbibliography[heading=none]
-\end{frame}
-
-% Backup Slides
-% -----------------------------
-
-\section*{Extra Slides}
-
-\begin{frame}
-  \sectionpage
-\end{frame}
-
-\begin{frame}{Intrusion Detection}
-  
-  \textbf{Machine Learning (ML) for Network-based Intrusion Detection Systems (NIDSs)}
-  \begin{itemize}
-    \item Detect \alert{malicious} activities (\ie, \textit{misuse detection}) or \alert{anomalies} (\ie, \textit{anomaly detection}).
-    \item Various types of algorithms: \alert<2>{supervised}, unsupervised, semi-supervised, reinforcement learning, \textit{etc}.
-    \item Great performance with Deep Learning (DL) (on public datasets at least).
-  \end{itemize}
-  \bigskip
-    
-  \begin{figure}
-    \centering
-    \makebox[\textwidth][c]{\includegraphics[width=.9\textwidth]{figures/intro/mlp-workflow.pdf}}
-    \caption{Typical workflow for ML-based NIDSs.}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Intrusion Detection}
-
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-        \textbf{Challenges:}
-        \begin{itemize}
-          \item not enough labelled data;
-          \item risk of local bias or skewed data distribution;
-          \item inefficient against new attacks, especially \alert{supervised} approaches.
-        \end{itemize}
-    \end{column}
-
-    \begin{column}{0.5\textwidth}
-      \begin{figure}
-        \centering
-        \includegraphics[width=\linewidth]{figures/intro/ml-perf}
-      \end{figure}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{Scaling Intrusion Detection}
-
-  \textbf{Federated Learning (FL)}
-  
-  \begin{itemize}
-    \item Novel-\emph{ish} distributed ML paradigm (Google, 2017)~\cite{mcmahan_Communicationefficientlearningdeep_2017}.
-    \item Distributed clients can train a common model without sharing their training data.
-    \item Privacy-preserving: high level of abstraction for the shared models preventing data leakage.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{FL Fundamentals}
-  \vspace{-1em}
-  \begin{figure}
-    \centering
-    \only<1>{\includegraphics[width=.75\linewidth]{./figures/intro/fl/0.pdf}}%
-    \only<2>{\includegraphics[width=.75\linewidth]{./figures/intro/fl/1.pdf}}%
-    % Cannot use animations with MacOS Preview.
-    % \only<3>{\animategraphics[width=.75\linewidth,loop,autoplay]{2}{./figures/intro/fl/2-}{1}{2}}%
-    \only<3>{\includegraphics[width=.75\linewidth]{./figures/intro/fl/2-2.pdf}}%
-    \only<4>{\includegraphics[width=.75\linewidth]{./figures/intro/fl/3.pdf}}%
-    \only<5>{\includegraphics[width=.75\linewidth]{./figures/intro/fl/4.pdf}}%
-    \only<6>{\includegraphics[width=.75\linewidth]{./figures/intro/fl/5.pdf}}%
-    \only<7>{\includegraphics[width=.75\linewidth]{./figures/intro/fl/6.pdf}}%
-    \caption{Typical FL workflow, applied to NIDSs.}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{FL for NIDSs}
-
-  \textbf{Benefits}
-  \begin{itemize}[<+->]
-    \item Virtually extended dataset with Horizontal FL.
-    \begin{itemize}[<1->]
-      \item Better generalization.
-      \item Reduced risk of overfitting or local bias.
-    \end{itemize}
-    
-
-    \item Effectively share knowledge (\eg, on specific classes, instances) between participants
-    \begin{itemize}[<1->]
-      \item Share the knowledge about a new attack~\autocite{lavaur_icdcs_demo_2024};
-      \item Improve the characterization of specific devices; \dots
-    \end{itemize}
-
-    \only<2>{\fcitefootnote{lavaur_icdcs_demo_2024}}
-
-  \end{itemize}
-\end{frame}
-
-
-\end{document}
