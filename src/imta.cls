@@ -144,7 +144,10 @@
   \smaller\color{imta-green}$\bullet$%
 }}
 \RequirePackage{fontspec}
-\newfontfamily\archer{Archer}
+\newfontfamily\archer{ArcherLightPro}[
+    Path        =   ./Archer-Font/  ,
+    Extension   =   .otf            ,
+]
 \DeclareTextFontCommand{\textnicemono}{\archer}
 \setbeamertemplate{enumerate items}{\archer\large\bfseries\color{imta-darkblue}\insertenumlabel.}
 
