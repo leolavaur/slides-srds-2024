@@ -58,7 +58,11 @@
 % Template customization %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Sections
-% \setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{section in toc}[sections numbered]
+
+% Not currently working due to the patching of \beamer@section below; todo.
+\setbeamercolor{section number projected}{fg=imta-blue}
+
 % \setbeamertemplate{subsection in toc}[subsections numbered]
 
 \makeatletter
@@ -82,15 +86,16 @@
 }
 \makeatother
 
-\newcounter{sectionpage}
-\makeatletter
 
+\newcounter{sectionpage}
+
+\makeatletter
 \patchcmd{\beamer@section}
     {\addtocontents{toc}{\protect\beamer@sectionintoc{\the\c@section}{#2}{\the\c@page}{\the\c@part}{\the\beamer@tocsectionnumber}}}
     {\setcounter{sectionpage}{\insertframenumber}\stepcounter{sectionpage}%
      \addtocontents{toc}{\bfseries\protect\beamer@sectionintoc{\the\c@section}{#2\normalfont\smaller\dotfill\thesectionpage}{\the\c@page}{\the\c@part}{\the\beamer@tocsectionnumber}}}
     {}{}
-
+\makeatother
 
 % Remove 'Figure x' from captions
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
