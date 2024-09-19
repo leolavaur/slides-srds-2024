@@ -1,3 +1,11 @@
+\appendix
+
+\begin{frame}[allowframebreaks]{References}
+  \printbibliography[heading=none]
+\end{frame}
+
+
+
 
 \section*{Extra Slides}
 
@@ -103,37 +111,9 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Intrusion Detection}
 
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-        \textbf{Challenges:}
-        \begin{itemize}
-          \item not enough labelled data;
-          \item risk of local bias or skewed data distribution;
-          \item inefficient against new attacks, especially \alert{supervised} approaches.
-        \end{itemize}
-    \end{column}
 
-    \begin{column}{0.5\textwidth}
-      \begin{figure}
-        \centering
-        \includegraphics[width=\linewidth]{figures/intro/ml-perf}
-      \end{figure}
-    \end{column}
-  \end{columns}
-\end{frame}
 
-\begin{frame}{Scaling Intrusion Detection}
-
-  \textbf{Federated Learning (FL)}
-  
-  \begin{itemize}
-    \item Novel-\emph{ish} distributed ML paradigm (Google, 2017)~\cite{mcmahan_Communicationefficientlearningdeep_2017}.
-    \item Distributed clients can train a common model without sharing their training data.
-    \item Privacy-preserving: high level of abstraction for the shared models preventing data leakage.
-  \end{itemize}
-\end{frame}
 
 \begin{frame}{FL Fundamentals}
   \vspace{-1em}
