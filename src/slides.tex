@@ -1,10 +1,6 @@
 \documentclass[aspectratio=169,10pt]{imta}
 
 \usepackage{config}
-% /!\ Require lualatex compiler
-\usepackage{emoji}
-\usepackage{tikz}
-\usetikzlibrary{arrows}
 
 \title{RADAR: Model Quality Assessment for Reputation-aware Collaborative Federated Learning”}
 
@@ -36,10 +32,6 @@
   \raisebox{-0.5\height}{\includegraphics[height=.75\logosize,keepaspectratio]{logos/b5g.png}}%
 }
 
-\newcommand{\hr}{\cellcolor{red!30}}
-\newcommand{\ho}{\cellcolor{orange!30}}
-\newcommand{\hg}{\cellcolor{imta-green!30}} 
-
 \subject{Federated Learning; Intrusion Detection; Byzantine; Cross-evaluation; Similarity; Clustering; Reputation Systems; Trust; Heterogeneity}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -48,10 +40,6 @@
 
 \begin{document}
 
-% For every picture that defines or uses external nodes, you'll have to
-% apply the 'remember picture' style. To avoid some typing, we'll apply
-% the style to all pictures.
-\tikzstyle{every picture}+=[remember picture]
 
 
 \maketitle
@@ -60,14 +48,15 @@
 
 % Introduction
 % -----------------------------
-% \include{sections/00_intro}
+\include{sections/00_intro}
 
 % Architecture
 % -----------------------------
-% \include{sections/10_archi}
+\include{sections/10_archi}
+
 % Evaluation Setup
 % -----------------------------
-% \include{sections/20_eval_setup}
+\include{sections/20_eval_setup}
 
 % Results
 % -----------------------------
@@ -75,7 +64,7 @@
 
 % Conclusion
 % -----------------------------
-% \include{sections/30_conclusion}
+\include{sections/30_conclusion}
 
 % Backup Slides
 % -----------------------------

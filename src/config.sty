@@ -23,3 +23,18 @@
   \let\thefootnote\relax\footnotetext{#1}%
   \let\thefootnote\svthefootnote%
 }
+
+% /!\ Require lualatex compiler
+\usepackage{emoji}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+\newcommand{\hr}{\cellcolor{red!30}}
+\newcommand{\ho}{\cellcolor{orange!30}}
+\newcommand{\hg}{\cellcolor{imta-green!30}} 
+
+% For every picture that defines or uses external nodes, you'll have to
+% apply the 'remember picture' style. To avoid some typing, we'll apply
+% the style to all pictures.
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{na} = [baseline=-.5ex]

@@ -302,13 +302,16 @@
                             & \texttt{Lone} &\tikz[baseline]{ \node[anchor=base] (t1){\textbf{0.00}}}  & 93.82 &  0.45 \\
                         \end{tabularx}
                 \end{table}
-                  
-                % Still, the results are good, why ? 
-                % \tikz[na]\node [coordinate] (n2) {};
+                \vspace{0.5cm}
+                \begin{itemize}
+                    \item Still, the results are good, why ?
+                    \tikz[na]\node[coordinate] (n1) {};
+                \end{itemize}
                 
-                % \begin{tikzpicture}[overlay]
-                %     \path[->]<1-> (n1) edge [bend right] (t1);
-                % \end{tikzpicture}
+                
+                \begin{tikzpicture}[overlay]
+                    \path[->]<1-> (n1.north) edge [bend right] (t1);
+                \end{tikzpicture}
 
          \end{column}
   \end{columns}
