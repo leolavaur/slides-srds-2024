@@ -64,7 +64,7 @@
   \vspace{3ex}
   
   \fcitefootnote{zhou_DifferentiallyPrivateFederated_2022}
-  \only<1-2>{\blankfootnote{}} % To keep the same height for the footnotes.
+  \only<1>{\blankfootnote{}} % To keep the same height for the footnotes.
   \only<2->{\fcitefootnote{briggs_Federatedlearninghierarchical_2020}}
   \only<3->{\fcitefootnote{zhao_ShieldingCollaborativeLearning_2020}}
 
@@ -122,54 +122,71 @@
 % Parler du thresold dynamique et de sa méthode de calcul. 
 % 
 \begin{frame}{Fighting Heterogeneity with Clustering}
-  \begin{columns}
-    \begin{column}{.55\textwidth}
-      \textbf{Objective}
-      \begin{itemize}
-        \item Reduce heterogeneity for the aggregation.
-        \item Build communities of \emph{more} homogeneous participants.
-      \end{itemize}
+  
+  \textbf{Objective}
+  \begin{itemize}
+    \item Build \emph{more} homogeneous communities of participants to facilitate model aggregation.
+  \end{itemize}
 
-
-      \onslide<2>{%
-        \textbf{Clustering for FL}
-        \begin{itemize}
-          \item Regarding data-source:
-          \begin{itemize}
-            \item Gradient/model similarity.~\autocite{briggs_Federatedlearninghierarchical_2020}
-            \item Cross-evaluation results.
-          \end{itemize}
-
-          \item Clustering methods:
-          \begin{itemize}
-            \item Dynamic \emph{split-and-merge}.~\autocite{chen_ZeroKnowledgeClustering_2021}
-            \item Hierarchical clustering.~\autocite{briggs_Federatedlearninghierarchical_2020}
-          \end{itemize}
-        \end{itemize}
-      }
-      
-    \end{column}
 
     \pause
-    \begin{column}{.45\textwidth}
-      \begin{figure}
-        \centering
-        \makebox[\textwidth][c]{%
-          \includegraphics[width=1.2\textwidth]{figures/radar/clustering.drawio.pdf}%
-        }
-        %\includegraphics[width=\textwidth]{figures/radar/clustering.drawio.pdf}
-        \caption{Hierarchical clustering.}
-      \end{figure}
-    \end{column}
-  \end{columns}
-  
+    \textbf{Clustering for FL}
 
-  \only<2>{%
-    \fcitefootnote{briggs_Federatedlearninghierarchical_2020}
-    \fcitefootnote{chen_ZeroKnowledgeClustering_2021}
-  }
+    \begin{columns}
+        
+        \begin{column}{.5\textwidth}
+            \begin{itemize}
+                \item Distance metric:
+                \begin{itemize}
+                    \item Between models/gradients;
+                    \item L1/L2 Norm, cosine similarity\dots~\cite{briggs_Federatedlearninghierarchical_2020}
+                \end{itemize}
+            \end{itemize}
+        \end{column}
+    
+        \pause
+        \begin{column}{.45\textwidth}
+              \begin{itemize}
+    
+              \item Algorithms:
+              \begin{itemize}
+                \item Dynamic \emph{split-and-merge}.~\autocite{chen_ZeroKnowledgeClustering_2021}
+                \item Hierarchical clustering.~\autocite{briggs_Federatedlearninghierarchical_2020}
+              \end{itemize}
+            \end{itemize}
+    
+        \end{column}
+    \end{columns}
 
+    \only<2->{\fcitefootnote{briggs_Federatedlearninghierarchical_2020}}
+    \only<3->{\fcitefootnote{chen_ZeroKnowledgeClustering_2021}}
 \end{frame}
+
+\begin{frame}{Fighting Heterogeneity with Clustering}
+    \begin{columns}
+        \begin{column}{.4\textwidth}
+
+        Leverage cross-evaluation results instead of model updates:
+        \begin{itemize}
+            \item subjective similarity estimation;
+            \item similar evaluations $\rightarrow$ similar data distributions;
+        \end{itemize}
+
+        \end{column}
+        \begin{column}{.6\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{figures/radar/clustering.drawio.pdf}
+                % \makebox[\textwidth][c]{%
+                %   \includegraphics[width=1.2\textwidth]{figures/radar/clustering.drawio.pdf}%
+                % }
+                \caption{Hierarchical clustering.}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
 
 \subsection{Mitigating Byzantine Contributions}
 
