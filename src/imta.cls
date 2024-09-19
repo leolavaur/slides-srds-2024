@@ -18,7 +18,6 @@
   progressbar=foot, % Adds progress bar at the bottom of each frame
   block=fill, % Fill block environments with color
   titleformat frame=smallcaps, % Frame titles in small caps
-  subsectionpage=progressbar, % Adds progress bar to subsection slides
   sectionpage=none, % Removes section slides
 } 
 
@@ -92,10 +91,27 @@
 \makeatletter
 \patchcmd{\beamer@section}
     {\addtocontents{toc}{\protect\beamer@sectionintoc{\the\c@section}{#2}{\the\c@page}{\the\c@part}{\the\beamer@tocsectionnumber}}}
-    {\setcounter{sectionpage}{\insertframenumber}\stepcounter{sectionpage}%
-     \addtocontents{toc}{\bfseries\protect\beamer@sectionintoc{\the\c@section}{#2\normalfont\smaller\dotfill\thesectionpage}{\the\c@page}{\the\c@part}{\the\beamer@tocsectionnumber}}}
+    {%
+      \setcounter{sectionpage}{\insertframenumber}\stepcounter{sectionpage}%
+      \addtocontents{toc}{\bfseries\protect\beamer@sectionintoc
+          {\the\c@section}
+          {#2\normalfont\smaller\dotfill\thesectionpage}
+          {\the\c@page}
+          {\the\c@part}
+          {\the\beamer@tocsectionnumber}%
+    }}
     {}{}
 \makeatother
+
+%\setbeamertemplate{subsection in toc}[subsections numbered]
+\setbeamertemplate{subsection in toc}
+{%
+  \leavevmode\normalfont\small\leftskip=3em%
+  \rlap{\hskip-2em\inserttocsectionnumber.\inserttocsubsectionnumber}%
+  \inserttocsubsection\par%
+}
+\setbeamercolor{section number projected}{fg=imta-blue}
+
 
 % Remove 'Figure x' from captions
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}

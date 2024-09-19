@@ -1,19 +1,77 @@
+\section*{Introduction}
+
+\begin{frame}{Intrusion Detection in Organizations}
+  \begin{columns}
+    \begin{column}{0.35\textwidth}
+      \textbf{Intrusion Detection System}: Security tool that monitors the behavior of a system to detect malicious activities.
+    \end{column}
+
+    \pause
+    \begin{column}{0.65\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{figures/intro/ids}
+      \end{figure}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}{Intrusion Detection in Organizations}
+
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+          \textbf{Challenges:}
+          \begin{itemize}
+            \item not enough labelled data;
+            \item risk of local bias or skewed data distribution;
+            \item inefficient against new attacks, especially \alert{supervised} approaches.
+          \end{itemize}
+      \end{column}
+  
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \centering
+          \includegraphics[width=\linewidth]{figures/intro/ml-perf}
+        \end{figure}
+      \end{column}
+    \end{columns}
+  \end{frame}
+
+
+\begin{frame}{Scaling Intrusion Detection}
+
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \textbf{Federated Learning (FL)}
+      \small
+      \begin{itemize}[<+->]
+        \item Novel-\emph{ish} distributed ML paradigm (Google, 2017)~\autocite{mcmahan_Communicationefficientlearningdeep_2017}.
+        \item Distributed clients  train a common model without sharing training data.
+        \item \alert{Privacy-preserving}: high level of abstraction for the shared models preventing data leakage.
+      \end{itemize}
+    \end{column}
+    
+    \begin{column}{0.6\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{figures/intro/fl.drawio.pdf}
+      \end{figure}
+    \end{column}
+  \end{columns}
+
+  \fcitefootnote{mcmahan_Communicationefficientlearningdeep_2017}
+\end{frame}
+
+
 \begin{frame}{Case Study}
   \textbf{Collaborative Intrusion Detection between Distributed Organizations}
   \begin{itemize}
-    \item Each organization has its own NIDS and monitors an information system.
+    \item Each organization has its own NIDS and monitors an information system via its network traffic.
     \item They want to improve their detection capabilities.
     \item Share knowledge about new attacks or specific devices.
   \end{itemize}
-
-  \pause
-  \textbf{A cross-silo use case:}
-  \begin{itemize}
-    \item few clients (\ie, 10——100);
-    \item consequent amount of data, high heterogeneity;
-    \item high availability, significant computing resources.
-  \end{itemize}
-
+  
   \pause
   \textbf{Byzantine contributions}
   \begin{itemize}
@@ -22,6 +80,14 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Case Study -- Generalization}
+  \textbf{A cross-silo use case}~\cite{kairouz_AdvancesOpenProblems_2021}:
+  \begin{itemize}
+    \item few clients (\ie, 10--100);
+    \item consequent amount of data, high heterogeneity;
+    \item high availability, significant computing resources.
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{Heterogeneity Headaches}
   
@@ -38,7 +104,7 @@
       \only<1>{%
         \begin{itemize} \small
           \item How to handle different feature sets, data distributions?
-          \item How to consider models that are dissimilar because they "contain" relevant knowledge?
+          \item How to consider models that are dissimilar yet "contain" relevant knowledge?
         \end{itemize}
       }
       \vspace{1ex}
