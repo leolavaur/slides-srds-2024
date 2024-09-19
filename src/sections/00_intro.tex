@@ -1,42 +1,18 @@
 \section*{Introduction}
 
-\begin{frame}{Intrusion Detection in Organizations}
-  \begin{columns}
-    \begin{column}{0.35\textwidth}
-      \textbf{Intrusion Detection System}: Security tool that monitors the behavior of a system to detect malicious activities.
-    \end{column}
+\begin{frame}{Intrusion Detection Use Case}
 
+    \begin{block}{Intrusion Detection System (IDS)}
+        IDSs monitor the behavior of a system to detect malicious activities.
+    \end{block}
+    \hfill
     \pause
-    \begin{column}{0.65\textwidth}
-      \begin{figure}
-        \centering
-        \includegraphics[width=\linewidth]{figures/intro/ids}
-      \end{figure}
-    \end{column}
-  \end{columns}
+    \begin{block}{Collaborative IDSs (CIDSs)}
+        Share information between \alert<3>{distributed parties} (whether they are automated probes, collection points, or legal entities) to improve the characterization of malicious activities, thus facilitating their detection.
+    \end{block}
 
 \end{frame}
 
-\begin{frame}{Intrusion Detection in Organizations}
-
-    \begin{columns}
-      \begin{column}{0.5\textwidth}
-          \textbf{Challenges:}
-          \begin{itemize}
-            \item not enough labelled data;
-            \item risk of local bias or skewed data distribution;
-            \item inefficient against new attacks, especially \alert{supervised} approaches.
-          \end{itemize}
-      \end{column}
-  
-      \begin{column}{0.5\textwidth}
-        \begin{figure}
-          \centering
-          \includegraphics[width=\linewidth]{figures/intro/ml-perf}
-        \end{figure}
-      \end{column}
-    \end{columns}
-  \end{frame}
 
 
 \begin{frame}{Scaling Intrusion Detection}
@@ -48,7 +24,7 @@
       \begin{itemize}[<+->]
         \item Novel-\emph{ish} distributed ML paradigm (Google, 2017)~\autocite{mcmahan_Communicationefficientlearningdeep_2017}.
         \item Distributed clients  train a common model without sharing training data.
-        \item \alert{Privacy-preserving}: high level of abstraction for the shared models preventing data leakage.
+        \item \alert{Privacy-preserving}: high level of abstraction for the shared models, preventing data leakage.
       \end{itemize}
     \end{column}
     

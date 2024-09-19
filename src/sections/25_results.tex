@@ -1,6 +1,11 @@
 % Results
 % -----------------------------
 \section{Results}
+
+\begin{frame}
+  \sectionpage
+\end{frame}
+
 \begin{frame}{Handling heterogeneity}
   \begin{columns}
     \begin{column}{.4\textwidth}
@@ -29,10 +34,10 @@
       \textbf{Scenario}
       & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
       \midrule % ---------------------------------
-      \textbf{Benign}& \textbf{0.00} & 5.17 &  0.09  \\
+      \textbf{Benign}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
     \end{tabularx}
   \end{table}
-  
+
          \end{column}
   \end{columns}
 \end{frame}
@@ -69,98 +74,11 @@
       \multicolumn{2}{c|}{{\textbf{Scenario}}}
       & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
       \midrule % ---------------------------------
-      \multicolumn{2}{l|}{\textbf{Benign}}& \textbf{0.00} & 5.17 &  0.09  \\
+        \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
       % % UNTARGETED ATTACKS
       \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
-      & \texttt{Lone} & \textbf{0.08} & 99.89 & 0.12 \\
+      & \texttt{Lone} & \hg 0.08 &\hr 99.89 & \hg 0.12 \\
 
-    \end{tabularx}
-  \end{table}
-  
-         \end{column}
-  \end{columns}
-\end{frame}
-
-%%%%%%%%%%%%
-%Untargeted min bis test1
-%%%%%%%%%%%%
-\begin{frame}{Handling untargeted attacks. Presentation 1}
-  \begin{columns}
-    \begin{column}{.4\textwidth}
-      \begin{figure}
-        \captionsetup{justification=centering}
-        % Info à ajouter : RI 1
-        % Clustering ok.
-        % Animation pour le premier ajout du cercle + le R1 = 1 ? 
-        \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_min_untargeted.pdf}%
-        \caption{Clustering results for\\ \texttt{colluding minority 100T}\\ 
-        Rand index=1.0
-        }
-      \end{figure}
-    \end{column}
-  \begin{column}{.6\textwidth}
-
-\begin{table}
-    \centering
-    % \caption{
-    % }
-    \footnotesize
-    \setlength\tabcolsep{1ex}
-    \begin{tabularx}{.7\textwidth}{lX|ccc}
-      \toprule % ---------------------------------
-      \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
-      \midrule % ---------------------------------
-      \multicolumn{2}{l|}{\textbf{Benign}}& \emoji{green-circle} & \emoji{orange-circle}
- &  \emoji{green-circle}  \\
-      % % UNTARGETED ATTACKS
-      \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
-      & \texttt{Lone} & \emoji{green-circle} & \emoji{red-circle} & \emoji{green-circle} \\
-      & \texttt{Collud. min.} &  \emoji{green-circle} & \emoji{green-circle} & \emoji{orange-circle}
- \\
-    \end{tabularx}
-  \end{table}
-  
-         \end{column}
-  \end{columns}
-\end{frame}
-
-%%%%%%%%%%%%
-%Untargeted min bis test2
-%%%%%%%%%%%%
-\begin{frame}{Handling untargeted attacks. Presentation 2}
-  \begin{columns}
-    \begin{column}{.4\textwidth}
-      \begin{figure}
-        \captionsetup{justification=centering}
-        % Info à ajouter : RI 1
-        % Clustering ok.
-        % Animation pour le premier ajout du cercle + le R1 = 1 ? 
-        \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_min_untargeted.pdf}%
-        \caption{Clustering results for\\ \texttt{colluding minority 100T}\\ 
-        Rand index=1.0
-        }
-      \end{figure}
-    \end{column}
-  \begin{column}{.6\textwidth}
-
-\begin{table}
-    \centering
-    % \caption{
-    % }
-    \footnotesize
-    \setlength\tabcolsep{1ex}
-    \begin{tabularx}{.7\textwidth}{lX|ccc}
-      \toprule % ---------------------------------
-      \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
-      \midrule % ---------------------------------
-      \multicolumn{2}{l|}{\textbf{Benign}}& \hg \textbf{0.00} & \ho 5.17 & \hg 0.09  \\
-      % % UNTARGETED ATTACKS
-      \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
-      % & \texttt{Benign} &  0.09  & 0.39 & 33.30 & \textbf{0.06} \\
-      & \texttt{Lone} & \hg \textbf{0.08} &\hr 99.89 & \hg 0.12 \\
-      & \texttt{Collud. min.} & \hg 0.10 & \hg \textbf{0.04} &\ho 6.26 \\
     \end{tabularx}
   \end{table}
   
@@ -172,7 +90,7 @@
 %%%%%%%%%%%%
 %Untargeted min
 %%%%%%%%%%%%
-\begin{frame}{Handling untargeted attacks}
+\begin{frame}{Handling untargeted attacks: \texttt{colluding minority 100T}.}
   \begin{columns}
     \begin{column}{.4\textwidth}
       \begin{figure}
@@ -199,19 +117,17 @@
       \multicolumn{2}{c|}{{\textbf{Scenario}}}
       & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
       \midrule % ---------------------------------
-      \multicolumn{2}{l|}{\textbf{Benign}}& \textbf{0.00} & 5.17 &  0.09  \\
+      \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
       % % UNTARGETED ATTACKS
       \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
-      % & \texttt{Benign} &  0.09  & 0.39 & 33.30 & \textbf{0.06} \\
-      & \texttt{Lone} & \textbf{0.08} & 99.89 & 0.12 \\
-      & \texttt{Collud. min.} &  0.10 & \textbf{0.04} & 6.26 \\
+      & \texttt{Lone} & \hg 0.08 &\hr 99.89 & \hg 0.12 \\
+      & \texttt{Collud. min.} & \hg 0.10 & \hg 0.04 &\ho 6.26 \\
     \end{tabularx}
   \end{table}
   
          \end{column}
   \end{columns}
 \end{frame}
-
 
 %%%%%%%%%%%%
 %Untargeted maj
@@ -243,20 +159,12 @@
       \multicolumn{2}{c|}{{\textbf{Scenario}}}
       & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
       \midrule % ---------------------------------
-      \multicolumn{2}{l|}{\textbf{Benign}}& \textbf{0.00} & 5.17 &  0.09  \\
+      \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
       % % UNTARGETED ATTACKS
       \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
-      % & \texttt{Benign} &  0.09  & 0.39 & 33.30 & \textbf{0.06} \\
-      & \texttt{Lone} & \textbf{0.08} & 99.89 & 0.12 \\
-      & \texttt{Collud. min.} &  0.10 & \textbf{0.04} & 6.26 \\
-      & \texttt{Collud. maj.} &  \textbf{0.08} & 38.98 & 94.36 \\                  % TARGETED ATTACKS
- 
-                  % & \texttt{Lone} &  \textbf{0.00} & 93.82 & 6.73 &  0.45 \\
-                  % & \texttt{Collud. min.} &  \textbf{0.00} &  2.97 & 9.99 & 53.40 \\
-                  % & \texttt{Collud. maj.} &  73.39 & \textbf{8.10} & 17.65 & 59.36 \\
-      % \midrule % ---------------------------------
-          
-      % \bottomrule % ---------------------------------
+      & \texttt{Lone} & \hg 0.08 &\hr 99.89 & \hg 0.12 \\
+      & \texttt{Collud. min.} & \hg 0.10 & \hg 0.04 &\ho 6.26 \\
+      & \texttt{Collud. maj.} & \hg 0.08 &\ho 38.98 & \hg 94.36 \\                  % TARGETED ATTACKS
       % \small & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\emph{lower is better}}
     \end{tabularx}
   \end{table}
@@ -272,20 +180,28 @@
 %%%%%%%%%%%%    
 % Lone   
 %%%%%%%%%%%%
+
 \begin{frame}{Handling targeted attacks: clustering effect}
   \begin{columns}
     \begin{column}{.4\textwidth}
+    
+      \begin{tikzpicture}
+        % Placing the image inside a node to reference its top-right corner
+        \node[] (t1) at (0, 0) {
+          \includegraphics<1>[width=\linewidth]{./figures/eval/clustering/clustering_lone_targeted.pdf}
+        };
+        % Draw a mark at the top-right corner of the image (north east anchor)
+        % \node[red, draw] at (image.north east) {Top-Right Anchor};
+      \end{tikzpicture}
+      \vspace{-0.5cm}
       \begin{figure}
         \captionsetup{justification=centering}
-        % Info à ajouter : RI 1
-        % Clustering ok.
-        % Animation pour le premier ajout du cercle + le R1 = 1 ? 
-        \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_lone_targeted.pdf}%
         \caption{Clustering results for\\
         \texttt{Lone 100T}\\ 
         Rand index=0.97}
       \end{figure}
-    \end{column}
+
+    \end{column}    
   \begin{column}{.6\textwidth}
                 \begin{table}
                     \centering
@@ -296,23 +212,36 @@
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
                             & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
                             \midrule % ---------------------------------
-                            \multicolumn{2}{l|}{\textbf{Benign}}& \textbf{0.00} & 5.17 &  0.09  \\
+                            \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
                             % % TARGETED ATTACKS
                             \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\    
-                            & \texttt{Lone} &\tikz[baseline]{ \node[anchor=base] (t1){\textbf{0.00}}}  & 93.82 &  0.45 \\
+                            & \texttt{Lone} &\hg \tikz[baseline]{ \node[anchor=base] (t2){0.00}}  & \hr 93.82 & \ho 0.45 \\
                         \end{tabularx}
                 \end{table}
                 \vspace{0.5cm}
-                \begin{itemize}
-                    \item Still, the results are good, why ?
-                    \tikz[na]\node[coordinate] (n1) {};
-                \end{itemize}
-                
-                
-                \begin{tikzpicture}[overlay]
-                    \path[->]<1-> (n1.north) edge [bend right] (t1);
-                \end{tikzpicture}
+                % \begin{columns}
+                %     \begin{column}{.25\textwidth}
+                %         \begin{text}{}{
+                %             \tikz[]{ \node (n1) {Attacker is grouped with \\
+                %             benign participants ...};} 
+                %         }
+                %         \end{text}
+                %     \end{column}
+ 
+                %     \begin{column}{.25\textwidth}
+                %         \begin{text}{}{\raggedright
+                %             \tikz[]{ \node (n2) {still, the results are good, why ?};} 
+                %         }
+                %         \end{text}
+                %     \end{column}
+                % \end{columns}
 
+                %     \begin{tikzpicture}[overlay]
+                %         \path[->]<1-> (n1.north west) edge [bend right] ($(t1.east) + (-0.75,1.75)$);
+                %     \end{tikzpicture}        
+                %     \begin{tikzpicture}[overlay]
+                %         \path[->]<1-> (n2.north east) edge [bend right] (t2);
+                %     \end{tikzpicture}
          \end{column}
   \end{columns}
 \end{frame}
@@ -347,10 +276,10 @@
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
                             & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
                             \midrule % ---------------------------------
-                            \multicolumn{2}{l|}{\textbf{Benign}}& \textbf{0.00} & 5.17 &  0.09  \\
+                            \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
                             % % TARGETED ATTACKS
                             \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\    
-                            & \texttt{Lone} &\textbf{0.00} & 93.82 &  0.45 \\
+                            & \texttt{Lone} &\hg 0.00  & \hr 93.82 & \ho 0.45 \\
                         \end{tabularx}
                 \end{table}
         \end{minipage}
@@ -388,27 +317,36 @@
       \end{figure}
     \end{column}
   \begin{column}{.6\textwidth}
+  \begin{minipage}[t][0.35\textheight]{\textwidth}
+                \centering
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \setlength\tabcolsep{1ex}
+                        \begin{tabularx}{.7\textwidth}{lX|ccc}
+                            \toprule % ---------------------------------
+                            \multicolumn{2}{c|}{{\textbf{Scenario}}}
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+                            \midrule % ---------------------------------
+                            \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
+                            % % TARGETED ATTACKS
+                            \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\    
+                            & \texttt{Lone} &\hg 0.00  & \hr 93.82 & \ho 0.45 \\
+                            & \texttt{Collud. min.} & \hg 0.00 & \hg 2.97 & \hr 53.40 \\
+                        \end{tabularx}
+                \end{table}
+        \end{minipage}
+        % \vspace{0.25cm}            
+    \begin{minipage}[t][0.65\textheight]{\textwidth}
+        \begin{figure}
+        % Matérialiser le zoom du cluster rouge vers les courbes de droites ?  
+            \captionsetup{justification=centering}
+                \includegraphics[width=0.65\linewidth]{./figures/eval/reput/byzantine_minority_loud_expanded.pdf}
+                \caption{Participants reputation for\\
+                \texttt{colluding minority 100T}}
+      \end{figure}
+    \end{minipage}  
 
-\begin{table}
-    \centering
-    % \caption{
-    % }
-    \footnotesize
-    \setlength\tabcolsep{1ex}
-    \begin{tabularx}{.7\textwidth}{lX|ccc}
-      \toprule % ---------------------------------
-      \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
-      \midrule % ---------------------------------
-      \multicolumn{2}{l|}{\textbf{Benign}}& \textbf{0.00} & 5.17 &  0.09  \\
-      % % TARGETED ATTACKS
-      \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\                  
-                  & \texttt{Lone} &  \textbf{0.00} & 93.82 &  0.45 \\
-                  & \texttt{Collud. min.} &  \textbf{0.00} &  2.97 & 53.40 \\
-%                   % & \texttt{Collud. maj.} &  73.39 & \textbf{8.10} & 59.36 \\
-
-    \end{tabularx}
-  \end{table}
   
          \end{column}
   \end{columns}
@@ -431,27 +369,36 @@
     \end{column}
   \begin{column}{.6\textwidth}
 
-\begin{table}
-    \centering
-    % \caption{
-    % }
-    \footnotesize
-    \setlength\tabcolsep{1ex}
-    \begin{tabularx}{.7\textwidth}{lX|ccc}
-      \toprule % ---------------------------------
-      \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
-      \midrule % ---------------------------------
-      \multicolumn{2}{l|}{\textbf{Benign}}& \textbf{0.00} & 5.17 &  0.09  \\
-      % % TARGETED ATTACKS
-      \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\                  
-                  & \texttt{Lone} &  \textbf{0.00} & 93.82 &  0.45 \\
-                  & \texttt{Collud. min.} &  \textbf{0.00} &  2.97 & 53.40 \\
-                  & \texttt{Collud. maj.} &  73.39 & \textbf{8.10} & 59.36 \\
-
-    \end{tabularx}
-  \end{table}
-  
+  \begin{minipage}[t][0.35\textheight]{\textwidth}
+                \centering
+                \begin{table}
+                    \centering
+                    \footnotesize
+                    \setlength\tabcolsep{1ex}
+                        \begin{tabularx}{.7\textwidth}{lX|ccc}
+                            \toprule % ---------------------------------
+                            \multicolumn{2}{c|}{{\textbf{Scenario}}}
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+                            \midrule % ---------------------------------
+                            \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
+                            % % TARGETED ATTACKS
+                            \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\    
+                            & \texttt{Lone} &\hg 0.00  & \hr 93.82 & \ho 0.45 \\
+                            & \texttt{Collud. min.} & \hg 0.00 & \hg 2.97 & \hr 53.40 \\
+                            & \texttt{Collud. maj.} &  \hr 73.39 & \ho 8.10 & \hr 59.36 \\
+                        \end{tabularx}
+                \end{table}
+        \end{minipage}
+        % \vspace{0.25cm}            
+    \begin{minipage}[t][0.65\textheight]{\textwidth}
+        \begin{figure}
+        % Matérialiser le zoom du cluster rouge vers les courbes de droites ?  
+            \captionsetup{justification=centering}
+                \includegraphics[width=0.65\linewidth]{./figures/eval/reput/byzantine_majority_loud_expanded.pdf}
+                \caption{Participants reputation for\\
+                \texttt{colluding majority 100T}}
+      \end{figure}
+    \end{minipage}  
          \end{column}
   \end{columns}
 \end{frame}
