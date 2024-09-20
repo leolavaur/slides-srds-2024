@@ -122,7 +122,7 @@
 % Parler du thresold dynamique et de sa méthode de calcul. 
 % 
 \begin{frame}{Fighting Heterogeneity with Clustering}
-  
+  % Un ptit graph içi ça ne mangerait pas de pain. 
   \textbf{Objective}
   \begin{itemize}
     \item Build \emph{more} homogeneous communities of participants to facilitate model aggregation.
@@ -207,8 +207,9 @@
   \onslide<2>{%
     \begin{itemize}
       \item Dirichlet distribution for local aggregation of the reputation scores.~\autocite{fung_DirichletBasedTrustManagement_2011}
-      \item Votes weighted by the similarity inside each cluster.
-      \item Exponential decay for potential redemption.
+      % \item Votes weighted by the similarity inside each cluster.
+      \item Votes weighted based on their similarity to other cluster members. 
+      \item Exponential decay to track behavior over time.
     \end{itemize}
   }
 
