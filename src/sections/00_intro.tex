@@ -69,15 +69,18 @@
   
   \begin{columns}
     \begin{column}{.5\textwidth}
-      \includegraphics[width=\linewidth]{figures/intro/heterogeneity.png}
+      \includegraphics<1>[width=\linewidth]{figures/intro/heterogeneity/introducing_heterogeneity.pdf}
+      \includegraphics<2>[width=\linewidth]{figures/intro/heterogeneity/introducing_heterogeneity_aggregated.pdf}
+      \includegraphics<3>[width=\linewidth]{figures/intro/heterogeneity/introducing_poisoning.pdf}
+
     \end{column}
 
     \begin{column}{.5\textwidth}
 
-      \textcolor<2->{lightgray}{%
+      \textcolor<3->{lightgray}{%
       \textbf{Challenge I}: \textit{Too much heterogeneity leads to poor performance\dots}
       }
-      \only<1>{%
+      \only<1-2>{%
         \begin{itemize} \small
           \item How to handle different feature sets, data distributions?
           \item How to consider models that are dissimilar yet "contain" relevant knowledge?
@@ -86,11 +89,11 @@
       \vspace{1ex}
 
 
-      \textcolor<1>{lightgray}{%
+      \textcolor<1-2>{lightgray}{%
       \textbf{Challenge II}: \textit{Difficult to identify malicious contributions when models are different\dots}
       }
       
-      \only<2>{%
+      \only<3>{%
         \begin{itemize} \small
           \item Are model "dissimilar" because they are different, or because they are malicious/poisoned?
         \end{itemize}
