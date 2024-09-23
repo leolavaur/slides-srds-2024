@@ -22,7 +22,7 @@
       \textbf{Federated Learning (FL)}
       \small
       \begin{itemize}[<+->]
-        \item Novel-\emph{ish} distributed ML paradigm (Google, 2017)~\autocite{mcmahan_Communicationefficientlearningdeep_2017}.
+        \item Distributed ML paradigm (Google, 2017)~\autocite{mcmahan_Communicationefficientlearningdeep_2017}.
         \item Distributed clients  train a common model without sharing training data.
         \item \alert{Privacy-preserving}: high level of abstraction for the shared models, preventing data leakage.
       \end{itemize}
@@ -105,9 +105,15 @@
 \end{frame}
 
 \begin{frame}{Problem Statement}
-  \begin{block}{Quality Assessment in Heterogeneous Settings}
-    For $n$ participants $p_i$ and their local datasets $d_i$ of unknown similarity, each participant uploads a model update $w_i^r$ at each round $r$. Given $P = \{ p_1, p_2, \dots, p_n \} $ and $W = \{ w_1^r, w_2^r, \dots, w_n^r \} $, how can one assess the quality of each participant’s contribution without making assumptions on the data distribution across the datasets $d_i$?
+% Reformuler 
+  \begin{block}
+    For $n$ participants $p_i$ and their local datasets $d_i$ of unknown similarity, each participant uploads a model update $w_i^r$ at each round $r$. 
+    
+    Given a set of local models, how can one assess the \alert{contribution quality} of each participant’s local models without making assumptions on the \alert{participant data distribution} ?
   \end{block}
+  % \begin{block}{Quality Assessment in Heterogeneous Settings}
+  %   For $n$ participants $p_i$ and their local datasets $d_i$ of unknown similarity, each participant uploads a model update $w_i^r$ at each round $r$. Given $P = \{ p_1, p_2, \dots, p_n \} $ and $W = \{ w_1^r, w_2^r, \dots, w_n^r \} $, how can one assess the quality of each participant’s contribution without making assumptions on the data distribution across the datasets $d_i$?
+  % \end{block}
 \end{frame}
 
 \begin{frame}{Outline}

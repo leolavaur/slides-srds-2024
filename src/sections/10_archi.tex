@@ -3,7 +3,20 @@
 \subsection{Assessing Contribution Quality}
 
 \begin{frame}
-  \subsectionpage
+    \tikz[overlay, remember picture,
+      shift=(current page.south west),
+      x=(current page.south east),
+      y=(current page.north west)
+    ]{
+        % Show the optional help grid lines 
+        %\draw[step=.1, opacity=0.3, thick, red] (0,0) grid (1,1);
+      
+        \node[anchor=south east] at (1,0) {
+            \includegraphics[width=\textwidth]{figures/radar-xeval.pdf}
+        };
+        
+        \node[align=left, anchor=north west] at (.05,.91) {\begin{minipage}{.7\textwidth}\subsectionpage\end{minipage}};
+    }
 \end{frame}
 
 \begin{frame}{Existing Solutions}
@@ -97,7 +110,7 @@
       \begin{itemize}
         \item High communication and computation costs.
         \item Does not scale well.
-        \item Shares local models to participants: less privacy-friendly.
+        % \item Shares local models to participants: less privacy-friendly.
       \end{itemize}
 
 
@@ -116,7 +129,17 @@
 \subsection{Fighting Heterogeneity with Clustering}
 
 \begin{frame}
-  \subsectionpage
+    \tikz[overlay, remember picture,
+      shift=(current page.south west),
+      x=(current page.south east),
+      y=(current page.north west)
+    ]{      
+        \node[anchor=south east] at (1,0) {
+            \includegraphics[width=\textwidth]{figures/radar-clust.pdf}
+        };
+        
+        \node[align=left, anchor=north west] at (.05,.91) {\begin{minipage}{.7\textwidth}\subsectionpage\end{minipage}};
+    }
 \end{frame}
 
 % Parler du thresold dynamique et de sa méthode de calcul. 
@@ -191,9 +214,18 @@
 \subsection{Mitigating Byzantine Contributions}
 
 \begin{frame}
-  \subsectionpage
+    \tikz[overlay, remember picture,
+      shift=(current page.south west),
+      x=(current page.south east),
+      y=(current page.north west)
+    ]{
+        \node[anchor=south east] at (1,0) {
+            \includegraphics[width=\textwidth]{figures/radar-reput.pdf}
+        };
+        
+        \node[align=left, anchor=north west] at (.05,.91) {\begin{minipage}{.7\textwidth}\subsectionpage\end{minipage}};
+    }
 \end{frame}
-
 \begin{frame}{Reputation-aware Aggregation}
 
   \begin{block}{Definition: Reputation Systems\normalfont~\autocite{resnick_Reputationsystems_2000}}
