@@ -153,49 +153,61 @@
 
 
     \pause
-    \textbf{Clustering for FL}
-
-    \begin{columns}
-        
-        \begin{column}{.5\textwidth}
-            \begin{itemize}
-                \item Distance metric:
-                \begin{itemize}
-                    \item Between models/gradients;
-                    \item L1/L2 Norm, cosine similarity\dots~\cite{briggs_Federatedlearninghierarchical_2020}
-                \end{itemize}
-            \end{itemize}
-        \end{column}
-    
-        \pause
-        \begin{column}{.45\textwidth}
-              \begin{itemize}
-    
-              \item Algorithms:
-              \begin{itemize}
-                \item Dynamic \emph{split-and-merge}.~\autocite{chen_ZeroKnowledgeClustering_2021}
-                \item Hierarchical clustering.~\autocite{briggs_Federatedlearninghierarchical_2020}
-              \end{itemize}
-            \end{itemize}
-    
-        \end{column}
-    \end{columns}
-
-    \only<2->{\fcitefootnote{briggs_Federatedlearninghierarchical_2020}}
-    \only<3->{\fcitefootnote{chen_ZeroKnowledgeClustering_2021}}
-\end{frame}
-
-\begin{frame}{Fighting Heterogeneity with Clustering}
-    \begin{columns}
-        \begin{column}{.4\textwidth}
-
-        Leverage cross-evaluation results instead of model updates:
+    \textbf{Clustering for FL}\\
+    Leverage cross-evaluation results instead of model updates:
         \begin{itemize}
             \item subjective similarity estimation;
             \item similar evaluations $\rightarrow$ similar data distributions;
         \end{itemize}
 
+    % \begin{columns}
+        
+    %     \begin{column}{.5\textwidth}
+    %         \begin{itemize}
+    %             \item Distance metric:
+    %             \begin{itemize}
+    %                 \item Between models/gradients;
+    %                 \item L1/L2 Norm, cosine similarity\dots~\cite{briggs_Federatedlearninghierarchical_2020}
+    %             \end{itemize}
+    %         \end{itemize}
+    %     \end{column} 
+    %     \pause
+    %     \begin{column}{.45\textwidth}
+    %           \begin{itemize}
+    
+    %           \item Algorithms:
+    %           \begin{itemize}
+    %             \item Dynamic \emph{split-and-merge}.~\autocite{chen_ZeroKnowledgeClustering_2021}
+    %             \item Hierarchical clustering.~\autocite{briggs_Federatedlearninghierarchical_2020}
+    %           \end{itemize}
+    %         \end{itemize}
+    
+    %     \end{column}
+    % \end{columns}
+
+\end{frame}
+
+\begin{frame}{Fighting Heterogeneity with Clustering}
+    \begin{columns}
+        \begin{column}{.4\textwidth}
+        \begin{itemize}
+                \item Distance metric:
+                \begin{itemize}
+                    \item Between models/gradients;
+                    \item L1/L2 Norm, \alert<3>{cosine similarity}\dots~\cite{briggs_Federatedlearninghierarchical_2020}
+                \end{itemize}
+        \end{itemize}
+        \onslide<2->{
+            \begin{itemize}
+                \item Algorithms:
+                \begin{itemize}
+                    \item Dynamic \emph{split-and-merge}.~\autocite{chen_ZeroKnowledgeClustering_2021}
+                    \item \alert<3>{Hierarchical clustering}.~\autocite{briggs_Federatedlearninghierarchical_2020}
+                \end{itemize}
+                \end{itemize}
+        }
         \end{column}
+        \onslide<3->{
         \begin{column}{.6\textwidth}
             \begin{figure}
                 \centering
@@ -206,7 +218,11 @@
                 \caption{Hierarchical clustering.}
             \end{figure}
         \end{column}
+        }
     \end{columns}
+    % \only<2->
+    \fcitefootnote{briggs_Federatedlearninghierarchical_2020}
+    \fcitefootnote{chen_ZeroKnowledgeClustering_2021}
 \end{frame}
 
 

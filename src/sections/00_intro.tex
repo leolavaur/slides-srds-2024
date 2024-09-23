@@ -31,7 +31,7 @@
     \begin{column}{0.6\textwidth}
       \begin{figure}
         \centering
-        \includegraphics[width=\linewidth]{figures/intro/fl.drawio.pdf}
+        \includegraphics[width=1.1\linewidth,center]{figures/intro/fl.drawio.pdf}
       \end{figure}
     \end{column}
   \end{columns}
@@ -39,22 +39,22 @@
   \fcitefootnote{mcmahan_Communicationefficientlearningdeep_2017}
 \end{frame}
 
-\begin{frame}{Case Study}
+\begin{frame}{Case Study -- CIDS}
 
   \begin{columns}
     \begin{column}{0.4\textwidth}
       \textbf{Collaborative Intrusion Detection between Distributed Organizations}
-  \begin{itemize}
-    \item Each organization has its own NIDS and monitors an information system via its network traffic.
-    \item They want to improve their detection capabilities.
-    \item Share knowledge about new attacks or specific devices.
+  \begin{itemize}[<+->]
+    \item One NIDS and one monitored network per organization.
+    \item \alert{Objective:} improve their local detection performance.
+    \item Agree to share knowledge on specific attack classes or devices.
   \end{itemize}
     \end{column}
     
     \begin{column}{0.6\textwidth}
       \begin{figure}
         \centering
-        \includegraphics[width=\linewidth]{figures/intro/cids.drawio.pdf}
+        \includegraphics[width=1.1\linewidth,center]{figures/intro/cids.drawio.pdf}
       \end{figure}
     \end{column}
   \end{columns}
@@ -62,7 +62,7 @@
 
 
 
-\begin{frame}{Case Study}
+\begin{frame}{Case Study -- CIDS with Trust Guarantees}
 \begin{columns}
     \begin{column}{0.4\textwidth}
       \textbf{Byzantine contributions}
@@ -75,7 +75,7 @@
     \begin{column}{0.6\textwidth}
       \begin{figure}
         \centering
-        \includegraphics[width=\linewidth]{figures/intro/poisoning.drawio.pdf}
+        \includegraphics[width=1.1\linewidth,center]{figures/intro/poisoning.drawio.pdf}
       \end{figure}
     \end{column}
   \end{columns}
@@ -86,7 +86,8 @@
   \begin{itemize}
     \item few clients (\ie, 10--100);
     \item consequent amount of data, high heterogeneity;
-    \item high availability, significant computing resources.
+    \item high availability, significant computing resources;
+    \item untrusted participants, \emph{honest-but-curious} server.
   \end{itemize}
 \end{frame}
 
@@ -131,20 +132,43 @@
 
 \begin{frame}{Problem Statement}
 % Reformuler 
-  \begin{block}
-    For $n$ participants $p_i$ and their local datasets $d_i$ of unknown similarity, each participant uploads a model update $w_i^r$ at each round $r$. 
+  \begin{block}{Quality Assessment in Heterogeneous Settings}
+    In a context where multiple participants own datasets of \alert{unknown similarity}, each participant contributes a local model update at each round. 
     
-    Given a set of local models, how can one assess the \alert{contribution quality} of each participant’s local models without making assumptions on the \alert{participant data distribution} ?
+    How can one assess the \alert{contribution quality} of each participant’s local models without making assumptions on the \alert{participant data distribution} ?
   \end{block}
   % \begin{block}{Quality Assessment in Heterogeneous Settings}
   %   For $n$ participants $p_i$ and their local datasets $d_i$ of unknown similarity, each participant uploads a model update $w_i^r$ at each round $r$. Given $P = \{ p_1, p_2, \dots, p_n \} $ and $W = \{ w_1^r, w_2^r, \dots, w_n^r \} $, how can one assess the quality of each participant’s contribution without making assumptions on the data distribution across the datasets $d_i$?
   % \end{block}
 \end{frame}
 
+
 \begin{frame}{Outline}
+%Tq présent dans gdr rsd slides.
+% How to evaluate models in highly heterogeneous settings?
+% How to set aside dissimilar participants?
+% How to identify and discard negative behaviors?
+
   \centering
-  \begin{minipage}[t]{.8\textwidth}
-    \tableofcontents%[hideallsubsections,]
-  \end{minipage}
+  \begin{columns}
+     \begin{column}{.4\textwidth}
+         \begin{itemize}
+             \item How to evaluate models in highly heterogeneous settings? % J'aimerais bien véhiculer le pb de ne pas avoir d'infos sur les données des clients mais je ne sais pas comment le dire
+             \item Using this knowledge, how to manage dissimilar participants?
+             \item How to identify and discard negative behaviors? % Retirer ? 
+
+         \end{itemize}
+     \end{column}
+     \begin{column}{.6\textwidth}
+        \begin{figure}
+        \centering
+        \includegraphics<1>[width=.95\linewidth,left]{figures/radar.pdf}%
+        \caption{\texttt{RADAR} architecture. } % remove Figure:
+        \label{fig:radar}
+    \end{figure}  
+         
+     \end{column}
+  \end{columns}
+    % \tableofcontents%[hideallsubsections,]
 \end{frame}
 

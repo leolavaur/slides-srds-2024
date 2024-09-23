@@ -143,7 +143,9 @@
 \setbeamercolor{example text}{fg=imta-green}
 \setbeamercolor{palette primary}{fg=imta-darkblue,bg=imta-gray}
 
-
+\setbeamercolor{block title}{bg=imta-blue,fg=white}
+\setbeamercolor{block body}{bg=imta-blue!10}
+\setbeamerfont{block title}{series=\bfseries}
 
 
 % Alerted text
