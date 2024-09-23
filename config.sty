@@ -39,3 +39,25 @@
 % the style to all pictures.
 \tikzstyle{every picture}+=[remember picture]
 \tikzstyle{na} = [baseline=-.5ex]
+
+
+
+% \usepackage{keycommand}
+% \usepackage{ifthen}
+
+% \newkeycommand{\absolute}[pos=(0,0),debug=false][1]{
+%     \tikz[overlay, remember picture,
+%       shift=(current page.south west),
+%       x=(current page.south east),
+%       y=(current page.north west)
+%     ]{
+%       % Check if debug is true
+%       \ifthenelse{\equal{\commandkey{debug}}{true}}{
+%         % Show the optional help grid lines when debug is true
+%         \draw[step=.1, opacity=0.3, thick, red] (0,0) grid (1,1);
+%       }{}
+      
+%       % Place the node at the specified position
+%       \node[align=left, anchor=south west] at (0,0) {#1};
+%     }
+% }
