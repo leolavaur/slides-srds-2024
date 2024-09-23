@@ -4,6 +4,39 @@
   \sectionpage
 \end{frame}
 
+\begin{frame}{Introduction to Poisoning Attacks}
+  \begin{itemize}
+    \item By \emph{component}:
+    \begin{itemize}
+      \item Data poisoning (\eg, \alert<5>{label-flipping}, clean-label attacks, backdoors)
+      \item Model poisoning (\eg, gradient boosting, noising)
+    \end{itemize}\emph{}
+
+    \pause
+    \item By \emph{target}:
+    \begin{itemize}
+      \item \alert<5>{Untargeted}: affect the model's global performance
+      \item \alert<5>{Targeted}: modify its behavior on specific classes or instances
+    \end{itemize}
+
+    \pause
+    \item By \emph{frequency}:
+    \begin{itemize}
+      \item one-shot: attacks are performed once
+      \item \alert<5>{iterative}/\alert<5>{continuous}: at each round
+      \item adaptive: reacts to the model aggregation
+    \end{itemize}
+
+    \pause
+    \item By \emph{proportion}:
+    \begin{itemize}
+      \item \alert<5>{Lone}: single attacker.
+      \item \alert<5>{Colluding minority}: several colluding attackers, outnumbered by benign participants. 
+      \item \alert<5>{Colluding majority}: several colluding attackers outnumbering benign participants.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Experimental Setup: heterogeneity}
 % Repère oral : dire que c'est 1/5 des données par participants de manières exclusive. 
   \begin{columns}
@@ -24,37 +57,6 @@
     \end{column}
   \end{columns}
   \fcitefootnote{sarhan_StandardFeatureSet_2021}
-\end{frame}
-
-
-
-\begin{frame}{Experimental setup: types of Poisoning Attacks}
-  \begin{itemize}[<+->]
-    \item By \emph{component}:
-    \begin{itemize}[<.->]
-      \item Data poisoning (\eg, \alert<5>{label-flipping}, clean-label attacks, backdoors)
-      \item Model poisoning (\eg, gradient boosting, noising)
-    \end{itemize}\emph{}
-
-    \item By \emph{target}:
-    \begin{itemize}[<.->]
-      \item \alert<5>{Untargeted}: affect the model's global performance
-      \item \alert<5>{Targeted}: modify its behavior on specific classes or instances
-    \end{itemize}
-
-    \item By \emph{frequency}:
-    \begin{itemize}[<.->]
-      \item one-shot: attacks are performed once
-      \item \alert<5>{iterative}/\alert<5>{continuous}: at each round
-      \item adaptive: reacts to the model aggregation
-    \end{itemize}
-    \item By \emph{proportion}:
-    \begin{itemize}[<.->]
-      \item \alert<5>{Lone}: single attacker.
-      \item \alert<5>{Colluding minority}: several colluding attackers, outnumbered by benign participants. 
-      \item \alert<5>{Colluding majority}: several colluding attackers outnumbering benign participants.
-    \end{itemize}
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{Experimental Setup: attack scenarios}
@@ -103,7 +105,8 @@
 \begin{frame}{Experimental Setup: baselines}
       \begin{itemize}
         \item \texttt{RADAR}: Our framework.
-        \item \texttt{FG}: Model comparison based poisoning mitigation strategy in \gls{niid} settings~\cite{fung_LimitationsFederatedLearning_2020}.
-        \item \texttt{FC}: Ideally clustered \texttt{FedAvg}~\cite{mcmahan_Communicationefficientlearningdeep_2017}.
+        \item \texttt{FoolsGold}: Similarity-based mitigation strategy in NIID\footnote{Not Independent nor Identically Distributed (NIID)}. settings~\cite{fung_LimitationsFederatedLearning_2020}.
+        \item \texttt{FedAvg}: the original FL algorithm~\cite{mcmahan_Communicationefficientlearningdeep_2017}.
+        \item \texttt{FedAvg} with \emph{ideal} clustering.
       \end{itemize}
 \end{frame}
