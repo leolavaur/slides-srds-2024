@@ -1,21 +1,22 @@
 \section*{Introduction}
 
-\begin{frame}{Intrusion Detection Use Case}
+% \begin{frame}{Intrusion Detection Use Case}
 
-    \begin{block}{Intrusion Detection System (IDS)}
-        IDSs monitor the behavior of a system to detect malicious activities.
-    \end{block}
-    \hfill
-    \pause
-    \begin{block}{Collaborative IDSs (CIDSs)}
-        CIDSs share information between \alert<3>{distributed parties} (whether they are automated probes, collection points, or legal entities) to improve the characterization of malicious activities, thus facilitating their detection.
-    \end{block}
+%     \begin{block}{Intrusion Detection System (IDS)}
+%         IDSs monitor the behavior of a system to detect malicious activities.
+%     \end{block}
+%     \hfill
+%     \pause
+%     \begin{block}{Collaborative IDSs (CIDSs)}
+%         CIDSs share information between \alert<3>{distributed parties} (whether they are automated probes, collection points, or legal entities) to improve the characterization of malicious activities, thus facilitating their detection.
+%     \end{block}
 
-\end{frame}
+% \end{frame}
 
 
 
-\begin{frame}{Scaling Intrusion Detection}
+% \begin{frame}{Scaling Intrusion Detection}
+\begin{frame}{Federated Learning primer}
 
   \begin{columns}
     \begin{column}{0.4\textwidth}
@@ -87,7 +88,7 @@
     \item few clients (\ie, 10--100);
     \item consequent amount of data, high heterogeneity;
     \item high availability, significant computing resources;
-    \item untrusted participants, \emph{honest-but-curious} server.
+    \item untrusted participants, honest server.
   \end{itemize}
 \end{frame}
 
@@ -95,18 +96,17 @@
   
   \begin{columns}
     \begin{column}{.5\textwidth}
-      \includegraphics<1>[width=\linewidth]{figures/intro/heterogeneity/introducing_heterogeneity.pdf}
-      \includegraphics<2>[width=\linewidth]{figures/intro/heterogeneity/introducing_heterogeneity_aggregated.pdf}
-      \includegraphics<3>[width=\linewidth]{figures/intro/heterogeneity/introducing_poisoning.pdf}
+      \includegraphics<1>[width=\linewidth]{figures/intro/heterogeneity/introducing_heterogeneity_aggregated.pdf}
+      \includegraphics<2>[width=\linewidth]{figures/intro/heterogeneity/introducing_poisoning.pdf}
 
     \end{column}
 
     \begin{column}{.5\textwidth}
 
-      \textcolor<3->{lightgray}{%
+      \textcolor<2->{lightgray}{%
       \textbf{Challenge I}: \textit{Too much heterogeneity leads to poor performance\dots}
       }
-      \only<1-2>{%
+      \only<1>{%
         \begin{itemize} \small
           \item How to handle different feature sets, data distributions?
           \item How to consider models that are dissimilar yet "contain" relevant knowledge?
@@ -115,11 +115,11 @@
       \vspace{1ex}
 
 
-      \textcolor<1-2>{lightgray}{%
+      \textcolor<1>{lightgray}{%
       \textbf{Challenge II}: \textit{Difficult to identify malicious contributions when models are different\dots}
       }
       
-      \only<3>{%
+      \only<2>{%
         \begin{itemize} \small
           \item Are model "dissimilar" because they are different, or because they are malicious/poisoned?
         \end{itemize}
@@ -142,33 +142,79 @@
   % \end{block}
 \end{frame}
 
+\begin{frame}{Existing Solutions}
 
-\begin{frame}{Outline}
-%Tq présent dans gdr rsd slides.
-% How to evaluate models in highly heterogeneous settings?
-% How to set aside dissimilar participants?
-% How to identify and discard negative behaviors?
+  \begin{columns}[T]
+    
+    \begin{column}{.33\textwidth}
+      \small\centering
+      \textbf{Server-side evaluation}~\autocite{zhou_DifferentiallyPrivateFederated_2022}
 
-  \centering
-  \begin{columns}
-     \begin{column}{.4\textwidth}
-         \begin{itemize}
-             \item How to evaluate models in highly heterogeneous settings? % J'aimerais bien véhiculer le pb de ne pas avoir d'infos sur les données des clients mais je ne sais pas comment le dire
-             \item Using this knowledge, how to manage dissimilar participants?
-             \item How to identify and discard negative behaviors? % Retirer ? 
+      \begin{figure}
+        \centering
+        \includegraphics[height=.36\textheight]{figures/radar/server-side-eval}
+      \end{figure}
 
-         \end{itemize}
-     \end{column}
-     \begin{column}{.6\textwidth}
+      \begin{itemize}\smaller
+        \item Only applicable in IID settings.
+        % \item Single source of truth.
+      \end{itemize}
+    \end{column}
+
+    \onslide<2->{%
+      \begin{column}{.33\textwidth}
+        \small\centering
+        \textbf{Server-side comparison}~\autocite{briggs_Federatedlearninghierarchical_2020}
+
         \begin{figure}
+          \centering
+          \includegraphics[height=.36\textheight]{figures/radar/server-side-comp}
+        \end{figure}
+
+        \begin{itemize}\smaller
+          \item Less related to client data.
+          % \item More appropriate for high-dimensional data.
+        \end{itemize}
+      \end{column}%
+    }
+
+    \onslide<3->{%
+      \begin{column}{.33\textwidth}
+        \small\centering
+        \textbf{Client-side evaluation}~\autocite{zhao_ShieldingCollaborativeLearning_2020}
+
+        \begin{figure}
+          \centering
+          \includegraphics[height=.36\textheight]{figures/radar/client-side-eval}
+        \end{figure}
+
+        \begin{itemize}\smaller
+          \item High cost in cross-device.
+          % \item More susceptible to badmouthing.
+        \end{itemize}
+      \end{column}%
+    }
+
+  \end{columns}
+
+  \vspace{3ex}
+  
+  \fcitefootnote{zhou_DifferentiallyPrivateFederated_2022}
+  \only<1>{\blankfootnote{}} % To keep the same height for the footnotes.
+  \only<2->{\fcitefootnote{briggs_Federatedlearninghierarchical_2020}}
+  \only<3->{\fcitefootnote{zhao_ShieldingCollaborativeLearning_2020}}
+
+\end{frame}
+
+\begin{frame}{Architecture}
+  \centering
+    \begin{figure}
         \centering
         \includegraphics<1>[width=.95\linewidth,left]{figures/radar.pdf}%
-        \caption{\texttt{RADAR} architecture. } % remove Figure:
+        \caption*{\texttt{RADAR} architecture. } % remove Figure:
         \label{fig:radar}
     \end{figure}  
          
-     \end{column}
-  \end{columns}
     % \tableofcontents%[hideallsubsections,]
 \end{frame}
 

@@ -1,7 +1,5 @@
 \section{Architecture}
-
 \subsection{Assessing Contribution Quality}
-
 \begin{frame}
     \tikz[overlay, remember picture,
       shift=(current page.south west),
@@ -17,70 +15,6 @@
         
         \node[align=left, anchor=north west] at (.05,.91) {\begin{minipage}{.7\textwidth}\subsectionpage\end{minipage}};
     }
-\end{frame}
-
-\begin{frame}{Existing Solutions}
-
-  \begin{columns}[T]
-    
-    \begin{column}{.33\textwidth}
-      \small\centering
-      \textbf{Server-side evaluation}~\autocite{zhou_DifferentiallyPrivateFederated_2022}
-
-      \begin{figure}
-        \centering
-        \includegraphics[height=.36\textheight]{figures/radar/server-side-eval}
-      \end{figure}
-
-      \begin{itemize}\smaller
-        \item Only applicable in IID settings.
-        \item Single source of truth.
-      \end{itemize}
-    \end{column}
-
-    \onslide<2->{%
-      \begin{column}{.33\textwidth}
-        \small\centering
-        \textbf{Server-side comparison}~\autocite{briggs_Federatedlearninghierarchical_2020}
-
-        \begin{figure}
-          \centering
-          \includegraphics[height=.36\textheight]{figures/radar/server-side-comp}
-        \end{figure}
-
-        \begin{itemize}\smaller
-          \item Less related to client data.
-          \item More appropriate for high-dimensional data.
-        \end{itemize}
-      \end{column}%
-    }
-
-    \onslide<3->{%
-      \begin{column}{.33\textwidth}
-        \small\centering
-        \textbf{Client-side evaluation}~\autocite{zhao_ShieldingCollaborativeLearning_2020}
-
-        \begin{figure}
-          \centering
-          \includegraphics[height=.36\textheight]{figures/radar/client-side-eval}
-        \end{figure}
-
-        \begin{itemize}\smaller
-          \item High cost in cross-device.
-          \item More susceptible to badmouthing.
-        \end{itemize}
-      \end{column}%
-    }
-
-  \end{columns}
-
-  \vspace{3ex}
-  
-  \fcitefootnote{zhou_DifferentiallyPrivateFederated_2022}
-  \only<1>{\blankfootnote{}} % To keep the same height for the footnotes.
-  \only<2->{\fcitefootnote{briggs_Federatedlearninghierarchical_2020}}
-  \only<3->{\fcitefootnote{zhao_ShieldingCollaborativeLearning_2020}}
-
 \end{frame}
 
 \begin{frame}{Assessing Quality with Cross-Evaluation}
@@ -127,7 +61,10 @@
 \end{frame}
 
 \subsection{Fighting Heterogeneity with Clustering}
-
+% Discours à porter sur cette slide  : 
+% Build \emph{more} homogeneous communities of participants to facilitate model aggregation.
+% 1 different model per more homogeneous community.
+% X-eval results not models : as explained earlier evaluations are representative of participants data distribution. 
 \begin{frame}
     \tikz[overlay, remember picture,
       shift=(current page.south west),
@@ -141,74 +78,51 @@
         \node[align=left, anchor=north west] at (.05,.91) {\begin{minipage}{.7\textwidth}\subsectionpage\end{minipage}};
     }
 \end{frame}
+% \begin{frame}{Fighting Heterogeneity with Clustering}
+%   % Un ptit graph içi ça ne mangerait pas de pain. 
+%   \textbf{Objective}
+%   \begin{itemize}
+%     \item Build \emph{more} homogeneous communities of participants to facilitate model aggregation.
+%   \end{itemize}
 
+
+%     \pause
+%     \textbf{Clustering for FL}\\
+%     Leverage cross-evaluation results instead of model updates:
+%         \begin{itemize}
+%             \item subjective similarity estimation;
+%             \item similar evaluations $\rightarrow$ similar data distributions;
+%         \end{itemize}
+% \end{frame}
+
+\begin{frame}{Fighting Heterogeneity with Clustering}
+%Discours :
+% Cosine sim : angle measure that will reflect even small changes in a single parameter. 
 % Parler du thresold dynamique et de sa méthode de calcul. 
-% 
-\begin{frame}{Fighting Heterogeneity with Clustering}
-  % Un ptit graph içi ça ne mangerait pas de pain. 
-  \textbf{Objective}
-  \begin{itemize}
-    \item Build \emph{more} homogeneous communities of participants to facilitate model aggregation.
-  \end{itemize}
-
-
-    \pause
-    \textbf{Clustering for FL}\\
-    Leverage cross-evaluation results instead of model updates:
-        \begin{itemize}
-            \item subjective similarity estimation;
-            \item similar evaluations $\rightarrow$ similar data distributions;
-        \end{itemize}
-
-    % \begin{columns}
-        
-    %     \begin{column}{.5\textwidth}
-    %         \begin{itemize}
-    %             \item Distance metric:
-    %             \begin{itemize}
-    %                 \item Between models/gradients;
-    %                 \item L1/L2 Norm, cosine similarity\dots~\cite{briggs_Federatedlearninghierarchical_2020}
-    %             \end{itemize}
-    %         \end{itemize}
-    %     \end{column} 
-    %     \pause
-    %     \begin{column}{.45\textwidth}
-    %           \begin{itemize}
-    
-    %           \item Algorithms:
-    %           \begin{itemize}
-    %             \item Dynamic \emph{split-and-merge}.~\autocite{chen_ZeroKnowledgeClustering_2021}
-    %             \item Hierarchical clustering.~\autocite{briggs_Federatedlearninghierarchical_2020}
-    %           \end{itemize}
-    %         \end{itemize}
-    
-    %     \end{column}
-    % \end{columns}
-
-\end{frame}
-
-\begin{frame}{Fighting Heterogeneity with Clustering}
+% Exemple rapide du hierarchical clustering.
     \begin{columns}
-        \begin{column}{.4\textwidth}
+        \begin{column}{.5\textwidth}
         \begin{itemize}
-                \item Distance metric:
+                \item Distance metric
                 \begin{itemize}
-                    \item Between models/gradients;
-                    \item L1/L2 Norm, \alert<3>{cosine similarity}\dots~\cite{briggs_Federatedlearninghierarchical_2020}
+                    % \item Between models/gradients;
+                    \item Based on \alert{cross-evaluation} results. 
+                    \item \alert{Cosine similarity}~\cite{briggs_Federatedlearninghierarchical_2020}.
                 \end{itemize}
         \end{itemize}
         \onslide<2->{
             \begin{itemize}
-                \item Algorithms:
+                \item Algorithm
                 \begin{itemize}
-                    \item Dynamic \emph{split-and-merge}.~\autocite{chen_ZeroKnowledgeClustering_2021}
-                    \item \alert<3>{Hierarchical clustering}.~\autocite{briggs_Federatedlearninghierarchical_2020}
+                    % \item Dynamic \emph{split-and-merge}.~\autocite{chen_ZeroKnowledgeClustering_2021}
+                    \item \alert{Hierarchical clustering}.~\autocite{briggs_Federatedlearninghierarchical_2020}
+                    \item Dynamic aggregation threshold. 
                 \end{itemize}
                 \end{itemize}
         }
         \end{column}
         \onslide<3->{
-        \begin{column}{.6\textwidth}
+        \begin{column}{.5\textwidth}
             \begin{figure}
                 \centering
                 \includegraphics[width=\textwidth]{figures/radar/clustering.drawio.pdf}
@@ -222,7 +136,7 @@
     \end{columns}
     % \only<2->
     \fcitefootnote{briggs_Federatedlearninghierarchical_2020}
-    \fcitefootnote{chen_ZeroKnowledgeClustering_2021}
+    % \fcitefootnote{chen_ZeroKnowledgeClustering_2021}
 \end{frame}
 
 
@@ -243,7 +157,9 @@
     }
 \end{frame}
 \begin{frame}{Reputation-aware Aggregation}
-
+% Point de discours 
+% Déf + pq ça match pour nous.
+% On fait de la pondération de modèles plus pertinent pour nous que du choix de modèles.
   \begin{block}{Definition: Reputation Systems\normalfont~\autocite{resnick_Reputationsystems_2000}}
     \begin{itemize}
       \item Long-lived entities that inspire an expectation of future interaction;
@@ -254,7 +170,7 @@
 
   \onslide<2>{%
     \begin{itemize}
-      \item Dirichlet distribution for local aggregation of the reputation scores.~\autocite{fung_DirichletBasedTrustManagement_2011}
+      % \item Dirichlet distribution for local aggregation of the reputation scores.~\autocite{fung_DirichletBasedTrustManagement_2011}
       % \item Votes weighted by the similarity inside each cluster.
       \item Votes weighted based on their similarity to other cluster members. 
       \item Exponential decay to track behavior over time.
@@ -262,9 +178,9 @@
   }
 
   \fcitefootnote{resnick_Reputationsystems_2000}
-  \only<2>{%
-    \fcitefootnote{fung_DirichletBasedTrustManagement_2011}
-  }
+  % \only<2>{%
+  %   \fcitefootnote{fung_DirichletBasedTrustManagement_2011}
+  % }
 
 \end{frame}
 
