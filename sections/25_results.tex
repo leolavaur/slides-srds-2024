@@ -11,11 +11,6 @@
     \begin{column}{.4\textwidth}
       \begin{figure}
               \captionsetup{justification=centering}
-
-        % Info à ajouter : RI 1
-        % Clustering ok.
-        % Animation pour le premier ajout du cercle + le R1 = 1 ? 
-        % Indiquer le pourcentage d'empoisonnement en plus. 
         \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_benign.pdf}%
         \caption{Clustering results without poisoning.\\ 
         Rand index=1.0}
@@ -32,10 +27,13 @@
     \begin{tabularx}{.7\textwidth}{X|ccc}
       \toprule % ---------------------------------
       \textbf{Scenario}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
       \midrule % ---------------------------------
-      \textbf{Benign}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
+      % \textbf{Benign}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
+      \textbf{Benign} & \hg 99.07 & \hr 55.04 & \hg 99.24  \\
     \end{tabularx}
+    \caption*{Accuracy for different baselines. \\
+        More is better.}
   \end{table}
 
          \end{column}
@@ -56,7 +54,7 @@
         % Clustering ok.
         % Animation pour le premier ajout du cercle + le R1 = 1 ? 
         \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_lone_untargeted.pdf}%
-        \caption{Clustering results for\\
+        \caption*{Clustering results for\\
         \texttt{lone 100U}.\\ 
         Rand index=1.0}
       \end{figure}
@@ -65,21 +63,19 @@
 
 \begin{table}
     \centering
-    % \caption{
-    % }
     \footnotesize
     \setlength\tabcolsep{1ex}
-    \begin{tabularx}{.7\textwidth}{lX|ccc}
+    \begin{tabularx}{.8\textwidth}{lX|ccc}
       \toprule % ---------------------------------
       \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
       \midrule % ---------------------------------
-        \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
       % % UNTARGETED ATTACKS
       \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
       & \texttt{Lone} & \hg 0.08 &\hr 99.89 & \hg 0.12 \\
-
     \end{tabularx}
+        \caption*{Attack success rate for different baselines. \\
+        Less is better.}  
   \end{table}
   
          \end{column}
@@ -95,11 +91,9 @@
     \begin{column}{.4\textwidth}
       \begin{figure}
         \captionsetup{justification=centering}
-        % Info à ajouter : RI 1
-        % Clustering ok.
-        % Animation pour le premier ajout du cercle + le R1 = 1 ? 
+
         \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_min_untargeted.pdf}%
-        \caption{Clustering results for\\ \texttt{colluding minority 100U}\\ 
+        \caption*{Clustering results for\\ \texttt{colluding minority 100U}\\ 
         Rand index=1.0
         }
       \end{figure}
@@ -112,17 +106,18 @@
     % }
     \footnotesize
     \setlength\tabcolsep{1ex}
-    \begin{tabularx}{.7\textwidth}{lX|ccc}
+    \begin{tabularx}{.8\textwidth}{lX|ccc}
       \toprule % ---------------------------------
       \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
       \midrule % ---------------------------------
-      \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
       % % UNTARGETED ATTACKS
       \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
       & \texttt{Lone} & \hg 0.08 &\hr 99.89 & \hg 0.12 \\
       & \texttt{Collud. min.} & \hg 0.10 & \hg 0.04 &\ho 6.26 \\
     \end{tabularx}
+    \caption*{Attack success rate for different baselines. \\
+    Less is better.}  
   \end{table}
   
          \end{column}
@@ -137,11 +132,9 @@
     \begin{column}{.4\textwidth}
       \begin{figure}
         \captionsetup{justification=centering}
-        % Info à ajouter : RI 1
-        % Clustering ok.
-        % Animation pour le premier ajout du cercle + le R1 = 1 ? 
+
         \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_maj_untargeted.pdf}%
-        \caption{Clustering results for\\
+        \caption*{Clustering results for\\
         \texttt{colluding majority 100U}\\ 
         Rand index=1.0}
       \end{figure}
@@ -154,19 +147,20 @@
     % }
     \footnotesize
     \setlength\tabcolsep{1ex}
-    \begin{tabularx}{.7\textwidth}{lX|ccc}
+    \begin{tabularx}{.8\textwidth}{lX|ccc}
       \toprule % ---------------------------------
       \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
       \midrule % ---------------------------------
-      \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
       % % UNTARGETED ATTACKS
       \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
       & \texttt{Lone} & \hg 0.08 &\hr 99.89 & \hg 0.12 \\
       & \texttt{Collud. min.} & \hg 0.10 & \hg 0.04 &\ho 6.26 \\
-      & \texttt{Collud. maj.} & \hg 0.08 &\ho 38.98 & \hg 94.36 \\                  % TARGETED ATTACKS
+      & \texttt{Collud. maj.} & \hg 0.08 &\ho 38.98 & \hr 94.36 \\                  % TARGETED ATTACKS
       % \small & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\emph{lower is better}}
     \end{tabularx}
+    \caption*{Attack success rate for different baselines. \\
+    Less is better.}  
   \end{table}
   
          \end{column}
@@ -197,7 +191,7 @@
       \begin{figure}
       
         \captionsetup{justification=centering}
-        \caption{Clustering results for\\
+        \caption*{Clustering results for\\
         \texttt{Lone 100T}\\ 
         Rand index=0.97}
       \end{figure}
@@ -208,16 +202,17 @@
                     \centering
                     \footnotesize
                     \setlength\tabcolsep{1ex}
-                        \begin{tabularx}{.7\textwidth}{lX|ccc}
+                        \begin{tabularx}{.8\textwidth}{lX|ccc}
                             \toprule % ---------------------------------
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
-                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
                             \midrule % ---------------------------------
-                            \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
                             % % TARGETED ATTACKS
                             \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\    
                             & \texttt{Lone} &\hg \tikz[baseline]{ \node[anchor=base] (t2){0.00}}  & \hr 93.82 & \ho 0.45 \\
                         \end{tabularx}
+                    \caption*{Attack success rate for different baselines. \\
+                    Less is better.}  
                 \end{table}
                 \vspace{0.5cm}
                 % \begin{columns}
@@ -255,11 +250,8 @@
     \begin{column}{.4\textwidth}
       \begin{figure}
         \captionsetup{justification=centering}
-        % Info à ajouter : RI 1
-        % Clustering ok.
-        % Animation pour le premier ajout du cercle + le R1 = 1 ? 
         \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_lone_targeted.pdf}%
-        \caption{Clustering results for\\
+        \caption*{Clustering results for\\
         \texttt{Lone 100T}\\ 
         Rand index=0.97}
       \end{figure}
@@ -272,22 +264,22 @@
                     \centering
                     \footnotesize
                     \setlength\tabcolsep{1ex}
-                        \begin{tabularx}{.7\textwidth}{lX|ccc}
+                        \begin{tabularx}{.8\textwidth}{lX|ccc}
                             \toprule % ---------------------------------
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
-                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
                             \midrule % ---------------------------------
-                            \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
+                            % \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
                             % % TARGETED ATTACKS
                             \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\    
                             & \texttt{Lone} &\hg 0.00  & \hr 93.82 & \ho 0.45 \\
                         \end{tabularx}
+                    \caption*{Attack success rate for different baselines. \\
+                    Less is better.}  
                 \end{table}
         \end{minipage}
-        % \vspace{0.25cm}            
     \begin{minipage}[t][0.65\textheight]{\textwidth}
         \begin{figure}
-        % Matérialiser le zoom du cluster rouge vers les courbes de droites ?  
             \captionsetup{justification=centering}
                 \includegraphics[width=0.65\linewidth]{./figures/eval/reput/lone_loud_expanded.pdf}
                 \caption{Participants reputation for\\
@@ -308,11 +300,8 @@
     \begin{column}{.4\textwidth}
       \begin{figure}
         \captionsetup{justification=centering}
-        % Info à ajouter : RI 1
-        % Clustering ok.
-        % Animation pour le premier ajout du cercle
         \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_min_targeted.pdf}%
-        \caption{Clustering results for\\
+        \caption*{Clustering results for\\
         \texttt{colluding minority 100T}\\ 
         Rand index=0.97}
       \end{figure}
@@ -324,17 +313,19 @@
                     \centering
                     \footnotesize
                     \setlength\tabcolsep{1ex}
-                        \begin{tabularx}{.7\textwidth}{lX|ccc}
+                        \begin{tabularx}{.8\textwidth}{lX|ccc}
                             \toprule % ---------------------------------
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
-                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
                             \midrule % ---------------------------------
-                            \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
+                            % \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
                             % % TARGETED ATTACKS
                             \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\    
                             & \texttt{Lone} &\hg 0.00  & \hr 93.82 & \ho 0.45 \\
                             & \texttt{Collud. min.} & \hg 0.00 & \hg 2.97 & \hr 53.40 \\
                         \end{tabularx}
+                        \caption*{Attack success rate for different baselines. \\
+                        Less is better.}  
                 \end{table}
         \end{minipage}
         % \vspace{0.25cm}            
@@ -347,24 +338,22 @@
     %             \texttt{colluding minority 100T}}
     %   \end{figure}
     % \end{minipage}  
-
-  
          \end{column}
   \end{columns}
 \end{frame}
 %%%%%%%%%%%%    
 % Targeted maj   
 %%%%%%%%%%%%
+%Disours
+%Insister sur le fait que c'est un cas hardcore dans lequel les systèmes de réput et de clustering se vautre et que donc nous aussi.
+%A dire dans cet ordre là et pas l'inverse. 
 \begin{frame}{Handling targeted attacks}
   \begin{columns}
     \begin{column}{.4\textwidth}
       \begin{figure}
         \captionsetup{justification=centering}
-        % Info à ajouter : RI 1
-        % Clustering ok.
-        % Animation pour le premier ajout du cercle + le R1 = 1 ? 
         \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_maj_targeted.pdf}%
-        \caption{Clustering results for \texttt{colluding majority 100T}\\ 
+        \caption*{Clustering results for \texttt{colluding majority 100T}\\ 
         Rand index=0.96}
       \end{figure}
     \end{column}
@@ -376,10 +365,10 @@
                     \centering
                     \footnotesize
                     \setlength\tabcolsep{1ex}
-                        \begin{tabularx}{.7\textwidth}{lX|ccc}
+                        \begin{tabularx}{.8\textwidth}{lX|ccc}
                             \toprule % ---------------------------------
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
-                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
                             \midrule % ---------------------------------
                             \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
                             % % TARGETED ATTACKS
@@ -388,69 +377,18 @@
                             & \texttt{Collud. min.} & \hg 0.00 & \hg 2.97 & \hr 53.40 \\
                             & \texttt{Collud. maj.} &  \hr 73.39 & \ho 8.10 & \hr 59.36 \\
                         \end{tabularx}
+                    % \caption*{Attack success rate for different baselines. \\
+                    % Less is better.}  
                 \end{table}
         \end{minipage}
-        % \vspace{0.25cm}            
     \begin{minipage}[t][0.65\textheight]{\textwidth}
         \begin{figure}
-        % Matérialiser le zoom du cluster rouge vers les courbes de droites ?  
             \captionsetup{justification=centering}
                 \includegraphics[width=0.65\linewidth]{./figures/eval/reput/byzantine_majority_loud_expanded.pdf}
-                \caption{Participants reputation for\\
+                \caption*{Participants reputation for\\
                 \texttt{colluding majority 100T}}
       \end{figure}
     \end{minipage}  
          \end{column}
   \end{columns}
 \end{frame}
-
-
-%% Dummy frame 
-% \section{Results}
-% \begin{frame}{Handling heterogeneity}
-%   \begin{columns}
-%     \begin{column}{.4\textwidth}
-%       \begin{figure}
-%         % Info à ajouter : RI 1
-%         % Clustering ok.
-%         % Animation pour le premier ajout du cercle + le R1 = 1 ? 
-%         \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering_untargeted_min.pdf}%
-%         \caption{Clustering results without poisoning.}
-%       \end{figure}
-%     \end{column}
-%   \begin{column}{.6\textwidth}
-
-% \begin{table}
-%     \centering
-%     % \caption{
-%     % }
-%     \footnotesize
-%     \setlength\tabcolsep{1ex}
-%     \begin{tabularx}{.7\textwidth}{lX|ccc}
-%       \toprule % ---------------------------------
-%       \multicolumn{2}{c|}{{\textbf{Scenario}}}
-%       & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c|}{\texttt{FC}} \\
-%       \midrule % ---------------------------------
-%       \multicolumn{2}{l|}{\textbf{Benign}}& \textbf{0.00} & 5.17 &  0.09  \\
-
-%       % TARGETED ATTACKS
-%       % \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100U})}  & & & \\                  
-%                   % & \texttt{Lone} &  \textbf{0.00} & 93.82 & 6.73 &  0.45 \\
-%                   % & \texttt{Collud. min.} &  \textbf{0.00} &  2.97 & 9.99 & 53.40 \\
-%                   % & \texttt{Collud. maj.} &  73.39 & \textbf{8.10} & 17.65 & 59.36 \\
-%       % \midrule % ---------------------------------
-%       % % UNTARGETED ATTACKS
-%       % \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
-%       % & \texttt{Benign} &  0.09  & 0.39 & 33.30 & \textbf{0.06} \\
-%       % & \texttt{Lone} & \textbf{0.08} & 99.89 & 54.70 & 0.12 \\
-%       % & \texttt{Collud. min.} &  0.10 & \textbf{0.04} & 44.53 & 6.26 \\
-%       % & \texttt{Collud. maj.} &  \textbf{0.08} & 38.98 & 59.49 & 94.36 \\          
-%       % \bottomrule % ---------------------------------
-%       % \small & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\emph{lower is better}}
-%     \end{tabularx}
-%   \end{table}
-  
-%          \end{column}
-%   \end{columns}
-% \end{frame}
-
