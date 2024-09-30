@@ -27,7 +27,7 @@
     \begin{tabularx}{.7\textwidth}{X|ccc}
       \toprule % ---------------------------------
       \textbf{Scenario}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
+      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{Clustered}} \\
       \midrule % ---------------------------------
       % \textbf{Benign}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
       \textbf{Benign} & \hg 99.07 & \hr 55.04 & \hg 99.24  \\
@@ -68,7 +68,7 @@
     \begin{tabularx}{.8\textwidth}{lX|ccc}
       \toprule % ---------------------------------
       \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
+      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{Clustered}} \\
       \midrule % ---------------------------------
       % % UNTARGETED ATTACKS
       \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
@@ -109,7 +109,7 @@
     \begin{tabularx}{.8\textwidth}{lX|ccc}
       \toprule % ---------------------------------
       \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
+      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{Clustered}} \\
       \midrule % ---------------------------------
       % % UNTARGETED ATTACKS
       \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
@@ -132,11 +132,26 @@
     \begin{column}{.4\textwidth}
       \begin{figure}
         \captionsetup{justification=centering}
-
-        \includegraphics<1>[width=\linewidth,left]{./figures/eval/clustering/clustering_maj_untargeted.pdf}%
-        \caption*{Clustering results for\\
-        \texttt{colluding majority 100U}\\ 
-        Rand index=1.0}
+        \only<1>{
+            \includegraphics[width=\linewidth,left]{./figures/eval/clustering/clustering_lone_untargeted.pdf}
+            \caption*{Clustering results for\\
+            \texttt{lone 100U}.\\ 
+            Rand index=1.0
+            }
+        }
+        \only<2>{
+            \includegraphics[width=\linewidth,left]{./figures/eval/clustering/clustering_min_untargeted.pdf}
+            \caption*{Clustering results for\\ \texttt{colluding minority 100U}\\ 
+            Rand index=1.0
+            }
+        }
+        \only<3>{
+            \includegraphics[width=\linewidth,left]{./figures/eval/clustering/clustering_maj_untargeted.pdf}
+          \caption*{Clustering results for\\
+            \texttt{colluding majority 100U}\\ 
+            Rand index=1.0
+            }
+        }        
       \end{figure}
     \end{column}
   \begin{column}{.6\textwidth}
@@ -150,15 +165,14 @@
     \begin{tabularx}{.8\textwidth}{lX|ccc}
       \toprule % ---------------------------------
       \multicolumn{2}{c|}{{\textbf{Scenario}}}
-      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
+      & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{Clustered}} \\
       \midrule % ---------------------------------
       % % UNTARGETED ATTACKS
       \multicolumn{2}{l|}{\textbf{Untargeted} (\texttt{100U})}  & & & \\
       & \texttt{Lone} & \hg 0.08 &\hr 99.89 & \hg 0.12 \\
-      & \texttt{Collud. min.} & \hg 0.10 & \hg 0.04 &\ho 6.26 \\
-      & \texttt{Collud. maj.} & \hg 0.08 &\ho 38.98 & \hr 94.36 \\                  % TARGETED ATTACKS
-      % \small & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\emph{lower is better}}
-    \end{tabularx}
+      \onslide<2->{ & \texttt{Collud. min.} & \hg 0.10 & \hg 0.04 &\ho 6.26 \\}
+      \onslide<3->{& \texttt{Collud. maj.} & \hg 0.08 &\ho 38.98 & \hr 94.36 \\}                  % TARGETED ATTACKS
+      \end{tabularx}
     \caption*{Attack success rate for different baselines. \\
     Less is better.}  
   \end{table}
@@ -205,7 +219,7 @@
                         \begin{tabularx}{.8\textwidth}{lX|ccc}
                             \toprule % ---------------------------------
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
-                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{Clustered}} \\
                             \midrule % ---------------------------------
                             % % TARGETED ATTACKS
                             \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})}  & & & \\    
@@ -267,7 +281,7 @@
                         \begin{tabularx}{.8\textwidth}{lX|ccc}
                             \toprule % ---------------------------------
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
-                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{Clustered}} \\
                             \midrule % ---------------------------------
                             % \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
                             % % TARGETED ATTACKS
@@ -316,7 +330,7 @@
                         \begin{tabularx}{.8\textwidth}{lX|ccc}
                             \toprule % ---------------------------------
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
-                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{Clustered}} \\
                             \midrule % ---------------------------------
                             % \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
                             % % TARGETED ATTACKS
@@ -368,7 +382,7 @@
                         \begin{tabularx}{.8\textwidth}{lX|ccc}
                             \toprule % ---------------------------------
                             \multicolumn{2}{c|}{{\textbf{Scenario}}}
-                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{FedAvgC}} \\
+                            & \multicolumn{1}{c}{\texttt{RADAR}} & \multicolumn{1}{c}{\texttt{FoolsGold}} & \multicolumn{1}{c|}{\texttt{Clustered}} \\
                             \midrule % ---------------------------------
                             \multicolumn{2}{l|}{\textbf{Benign}}& \hg 0.00 & \ho 5.17 & \hg 0.09  \\
                             % % TARGETED ATTACKS
