@@ -4,37 +4,80 @@
   \sectionpage
 \end{frame}
 
-\begin{frame}{Types of Poisoning Attacks}
-  \begin{itemize}
-    \item By \emph{component}:
-    \begin{itemize}
-      \item Data poisoning (\eg, \alert<5>{label-flipping}, clean-label attacks, backdoors)
-      \item Model poisoning (\eg, gradient boosting, noising)
-    \end{itemize}\emph{}
 
-    \pause
-    \item By \emph{target}:
-    \begin{itemize}
-      \item \alert<5>{Untargeted}: affect the model's global performance
-      \item \alert<5>{Targeted}: modify its behavior on specific classes or instances
-    \end{itemize}
 
-    \pause
-    \item By \emph{frequency}:
-    \begin{itemize}
-      \item one-shot: attacks are performed once
-      \item \alert<5>{incremental/continuous}: at each round
-      %\item adaptive: reacts to the model aggregation
-    \end{itemize}
+% \begin{frame}{Introduction to Poisoning Attacks}
+%   \begin{itemize}
+%     \item By \emph{component}:
+%     \begin{itemize}
+%       \item Data poisoning (\eg, \alert<5>{label-flipping}, clean-label attacks, backdoors)
+%       \item Model poisoning (\eg, gradient boosting, noising)
+%     \end{itemize}\emph{}
 
-    \pause
-    \item By \emph{collusion}:
-    \begin{itemize}
-      \item \alert<5>{Single attacker}
-      \item \alert<5>{Colluding attackers}: multiple coordinated participants
-    \end{itemize}
-  \end{itemize}
+%     \pause
+%     \item By \emph{target}:
+%     \begin{itemize}
+%       \item \alert<5>{Untargeted}: affect the model's global performance
+%       \item \alert<5>{Targeted}: modify its behavior on specific classes or instances
+%     \end{itemize}
+
+%     \pause
+%     \item By \emph{frequency}:
+%     \begin{itemize}
+%       \item one-shot: attacks are performed once
+%       \item \alert<5>{iterative}/\alert<5>{continuous}: at each round
+%       \item adaptive: reacts to the model aggregation
+%     \end{itemize}
+
+%     \pause
+%     \item By \emph{proportion}:
+%     \begin{itemize}
+%       \item \alert<5>{Lone}: single attacker.
+%       \item \alert<5>{Colluding minority}: several colluding attackers, outnumbered by benign participants. 
+%       \item \alert<5>{Colluding majority}: several colluding attackers outnumbering benign participants.
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
+
+\newtcolorbox{taxobox}[1][]{
+  enhanced,
+  colback=imta-blue!5,
+  colbacktitle=imta-blue,
+  coltitle=white,
+  sharp corners,
+  frame hidden,
+  boxrule=0pt,
+  fontupper=\small,
+  fonttitle=\bfseries,
+  after title app=\strut,
+  title=#1
+}
+
+\begin{frame}{Introduction to Poisoning Attacks}
+  \begin{columns}
+    \begin{column}{.45\textwidth}
+      \begin{taxobox}[By \emph{component}]
+        \setlength{\leftmargini}{5pt}
+        \begin{itemize}
+          \item Data poisoning (\eg, label-flipping, clean-label attacks, backdoors)
+          \item Model poisoning (\eg, gradient boosting, noising)
+        \end{itemize}
+      \end{taxobox}
+    \end{column}
+    \hfill
+    \begin{column}{.45\textwidth}
+      \begin{taxobox}[By \emph{component}]
+        \begin{itemize}
+          \item Data poisoning (\eg, label-flipping, clean-label attacks, backdoors)
+          \item Model poisoning (\eg, gradient boosting, noising)
+        \end{itemize}
+      \end{taxobox}
+    \end{column}
+  \end{columns}
 \end{frame}
+
+
+
 \begin{frame}{Experimental Setup: heterogeneity}
 % Repère oral : dire que c'est 1/5 des données par participants de manières exclusive. 
   \begin{columns}
