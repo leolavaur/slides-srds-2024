@@ -50,38 +50,54 @@
   fontupper=\small,
   fonttitle=\bfseries,
   after title app=\strut,
+  height=3cm,
   title=#1
 }
 
+
 \begin{frame}{Introduction to Poisoning Attacks}
-  \begin{columns}
-    \begin{column}{.45\textwidth}
-      \begin{taxobox}[By \emph{component}]
-        \setlength{\leftmargini}{5pt}
-        \begin{itemize}
-          \item Data poisoning (\eg, label-flipping, clean-label attacks, backdoors)
-          \item Model poisoning (\eg, gradient boosting, noising)
-        \end{itemize}
-      \end{taxobox}
-    \end{column}
-    \hfill
-    \begin{column}{.45\textwidth}
-      \begin{taxobox}[By \emph{component}]
-        \begin{itemize}
-          \item Data poisoning (\eg, label-flipping, clean-label attacks, backdoors)
-          \item Model poisoning (\eg, gradient boosting, noising)
-        \end{itemize}
-      \end{taxobox}
-    \end{column}
-  \end{columns}
+  \vspace{1em}
+  
+  \setlength{\leftmargini}{5pt}
+  \begin{tcbraster}[raster columns=2, raster equal height, raster column skip=2em, raster row skip=2em]
+    \pause
+    \begin{taxobox}[By \emph{component}]
+      \begin{itemize}
+        \item Data poisoning (\eg, \textbf<5>{label-flipping}, clean-label)
+        \item Model poisoning (\eg, gradient boosting)
+      \end{itemize}
+    \end{taxobox}
+    \pause
+    \begin{taxobox}[By \emph{objective}]
+      \begin{itemize}
+        \item Untargeted: impact model performance
+        \item Targeted: modify behavior for specific samples
+      \end{itemize}
+    \end{taxobox}
+    \pause
+    \begin{taxobox}[By \emph{timing}]
+      \begin{itemize}
+        \item one-shot: performed once
+        \item \textbf<5>{incremental/continuous}: at each round
+      \end{itemize}
+    \end{taxobox}
+    \pause
+    \begin{taxobox}[By \emph{proportion}]
+      \begin{itemize}
+        \item Single attacker
+        \item Colluding attackers: multiple coordinated participants
+      \end{itemize}
+    \end{taxobox}
+  \end{tcbraster}
 \end{frame}
 
 
 
-\begin{frame}{Experimental Setup: heterogeneity}
+\begin{frame}{Simulating Practical Heterogeneity}
 % Repère oral : dire que c'est 1/5 des données par participants de manières exclusive. 
   \begin{columns}
-    \begin{column}{.6\textwidth}
+    \begin{column}{.5\textwidth}
+      \textbf{Datasets}
       \begin{itemize}
         \item Heterogeneous datasets, but some participants can share similarities.
         \item 4 datasets: CIC-CSE-IDS2018, UNSW-NB15, Bot-IoT, ToN\_IoT.
@@ -90,10 +106,7 @@
     \end{column}
     \begin{column}{.5\textwidth}
       \begin{figure}
-
         \includegraphics[width=\linewidth]{figures/eval/setup/partition.pdf}%
-
-        %\caption{Partition of the datasets.}
       \end{figure}
     \end{column}
   \end{columns}
@@ -111,9 +124,11 @@
             \end{itemize}
         \end{column}
         \begin{column}{.5\textwidth}
-        
-            \includegraphics[width=.80\linewidth]{figures/eval/setup/poisoning.pdf}%
-            
+          \begin{figure}
+            \captionsetup{font=small, labelfont=small}
+            \includegraphics[width=\linewidth]{figures/eval/setup/poisoning.pdf}%
+            \caption{\texttt{colluding minority 100T} (\ie, 2 attackers, 100\% data poisoning on Reconnaissance class).}
+          \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
@@ -160,7 +175,7 @@
 % \end{frame}
 
 
-\begin{frame}{Experimental Setup: baselines}
+\begin{frame}{Comparison Baselines}
       \begin{itemize}
         \item \texttt{RADAR}: Our framework.
         \item \texttt{FoolsGold}: Similarity-based mitigation strategy in NIID\footnote{Not Independent nor Identically Distributed (NIID)}. settings~\cite{fung_LimitationsFederatedLearning_2020}.
