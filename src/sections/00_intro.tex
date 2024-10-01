@@ -212,11 +212,13 @@
 
 \end{frame}
 
-\begin{frame}{Architecture}
+\begin{frame}{Architecture \& Overview}
   \centering
     \begin{figure}
         \centering
-        \includegraphics<1>[width=.95\linewidth,left]{figures/radar.pdf}%
+        \foreach \i in {1,...,4} {
+          \includegraphics<\i>[width=.95\linewidth,left]{figures/radar-agenda-\i.pdf}%
+        }
         \caption*{\texttt{RADAR} architecture. } % remove Figure:
         \label{fig:radar}
     \end{figure}  
