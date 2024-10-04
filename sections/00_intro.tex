@@ -24,7 +24,7 @@
       \small
       \begin{itemize}[<+->]
         \item Distributed ML paradigm (Google, 2017)~\autocite{mcmahan_Communicationefficientlearningdeep_2017}.
-        \item Distributed clients  train a common model without sharing training data.
+        \item Distributed clients  train a common model without sharing data.
         \item \alert{Privacy-preserving}: high level of abstraction for the shared models, preventing data leakage.
       \end{itemize}
     \end{column}
@@ -49,7 +49,7 @@
     \item One NIDS and one monitored network per organization.
     \item Objective: improve their local detection performance.
     \item Means:
-    \begin{itemize}
+    \begin{itemize}[<.>]
         \item expert knowledge (\ie, datasets),
         \item computing resources (\ie, model training).
     \end{itemize}
@@ -70,12 +70,15 @@
 \begin{frame}{Case Study -- Byzantine Contributions}
 \begin{columns}
     \begin{column}{0.4\textwidth}
-      \begin{itemize}
-        \item No guarantees on the quality of the contributions.
-        \item Intentional, due to poor data quality, or due to data distribution mismatches.
+      \textbf{No guarantees on the contributions.}
+      \begin{itemize}[<+->]
+        \item Data quality issues (\eg, labelling, noise)
+        \item Distribution mismatches.
+        \item Adversaries\uncover<+->{\textit{, possibly colluding.}}
       \end{itemize}
-      
-      $\rightarrow$ \textbf{Byzantine contributions}
+
+      \bigskip
+      \onslide<+>{$\rightarrow$ \textbf{Byzantine contributions}}
     \end{column}
     
     \begin{column}{0.6\textwidth}
@@ -212,11 +215,13 @@
 
 \end{frame}
 
-\begin{frame}{Architecture}
+\begin{frame}{Architecture \& Overview}
   \centering
     \begin{figure}
         \centering
-        \includegraphics<1>[width=.95\linewidth,left]{figures/radar.pdf}%
+        \foreach \i in {1,...,4} {
+          \includegraphics<\i>[width=.95\linewidth,left]{figures/radar-agenda-\i.pdf}%
+        }
         \caption*{\texttt{RADAR} architecture. } % remove Figure:
         \label{fig:radar}
     \end{figure}  
