@@ -63,7 +63,7 @@
     \pause
     \begin{taxobox}[By \emph{component}]
       \begin{itemize}
-        \item Data poisoning (\eg, \textbf<6>{label-flipping}, clean-label)
+        \item Data poisoning (\eg, \alert<6>{label-flipping}, clean-label)
         \item Model poisoning (\eg, gradient boosting)
       \end{itemize}
     \end{taxobox}
@@ -74,18 +74,19 @@
         \item Targeted: modify behavior for specific samples
       \end{itemize}
     \end{taxobox}
-    \pause
-    \begin{taxobox}[By \emph{timing}]
-      \begin{itemize}
-        \item one-shot: performed once
-        \item \textbf<6>{incremental/continuous}: at each round
-      \end{itemize}
-    \end{taxobox}
+    % \pause
+    % \begin{taxobox}[By \emph{timing}]
+    %   \begin{itemize}
+    %     \item one-shot: performed once
+    %     \item \alert<6>{incremental/continuous}: at each round
+    %   \end{itemize}
+    % \end{taxobox}
+    \centering
     \pause
     \begin{taxobox}[By \emph{proportion}]
       \begin{itemize}
         \item Single attacker
-        \item Colluding attackers: multiple coordinated participants
+        \item Colluding attackers: multiple coordinated adversaries
       \end{itemize}
     \end{taxobox}
   \end{tcbraster}
@@ -184,6 +185,6 @@
         \item \texttt{RADAR}: Our framework.
         \item \texttt{FoolsGold}: Similarity-based mitigation strategy in NIID\footnote{Not Independent nor Identically Distributed (NIID)}. settings~\cite{fung_LimitationsFederatedLearning_2020}.
         \item \texttt{FedAvg}: the original FL algorithm~\cite{mcmahan_Communicationefficientlearningdeep_2017}.
-        \item \texttt{Clustered}: \texttt{FedAvg} with \emph{ideal} clustering.
+        \item \texttt{Clustered}: artificially clustered version of \texttt{FedAvg}.
       \end{itemize}
 \end{frame}
